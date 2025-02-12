@@ -83,7 +83,9 @@
         <button onclick="findInstance()">Find Instance</button>
         <div class="results" id="results"></div>
     </div>
-    <div class="footer">எல்லா புகழும் தமிழிற்கே</div>
+    <div class="footer">
+        எல்லா புகழும் தமிழிற்கே
+    </div>
 
 
 </body>
@@ -829,69 +831,85 @@
 
     ];
 
-    let filteredData = [];
-    let currentIndex = 0;
+    let filteredInstances = [];
+let currentIndex = 0;
 
-    // Function to filter and display matching instances
-    function findInstance() {
-        const vcpuInput = parseInt(document.getElementById("vcpu").value);
-        const memoryInput = parseInt(document.getElementById("memory").value);
+function findInstance() {
+    const vcpuInput = parseFloat(document.getElementById("vcpu").value);
+    const memoryInput = parseFloat(document.getElementById("memory").value);
 
-        if (isNaN(vcpuInput) || isNaN(memoryInput)) {
-            alert("Please enter valid numbers for vCPU and Memory.");
-            return;
-        }
-
-        filteredData = cpuRamData.filter(item => item["vCPU"] >= vcpuInput && item["Memory (GiB)"] >= memoryInput);
-        filteredData.sort((a, b) => a["vCPU"] - b["vCPU"] || a["Memory (GiB)"] - b["Memory (GiB)"]);
-
-        const resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = "";
-
-        if (filteredData.length === 0) {
-            resultsDiv.innerHTML = "<p>No matching instance found.</p>";
-            return;
-        }
-
-        // Display the first instance
-        displayInstance(currentIndex);
+    if (isNaN(vcpuInput) || isNaN(memoryInput)) {
+        alert("Please enter valid numbers for vCPU and Memory.");
+        return;
     }
 
-    // Function to display the current instance
-    function displayInstance(index) {
-        const resultsDiv = document.getElementById("results");
-        const instance = filteredData[index];
+    // Filter only instances that are >= the input values
+    filteredInstances = cpuRamData.filter(instance => 
+        instance["vCPU"] >= vcpuInput && instance["Memory (GiB)"] >= memoryInput
+    );
 
-        const div = document.createElement("div");
-        div.className = "instance";
-        div.innerHTML = `
-            <strong>${instance["Instance size"]}</strong> (vCPU: ${instance["vCPU"]}, Memory: ${instance["Memory (GiB)"]})
-        `;
-        resultsDiv.appendChild(div);
-
-        // Remove the "Next" button if it's already there
-        const existingNextButton = document.getElementById("nextBtn");
-        if (existingNextButton) {
-            existingNextButton.remove();
-        }
-
-        // Add "Next" button if there are more instances
-        if (index + 1 < filteredData.length) {
-            const nextButton = document.createElement("button");
-            nextButton.id = "nextBtn";
-            nextButton.innerHTML = "Next Nearest Instance";
-            nextButton.onclick = function() {
-                currentIndex++;
-                displayInstance(currentIndex);
-            };
-            resultsDiv.appendChild(nextButton);
-        } else {
-            const noMoreButton = document.createElement("button");
-            noMoreButton.innerHTML = "No more instances";
-            noMoreButton.disabled = true;
-            resultsDiv.appendChild(noMoreButton);
-        }
+    if (filteredInstances.length === 0) {
+        document.getElementById("results").innerHTML = "<p>No matching instance found.</p>";
+        return;
     }
+
+    // Sort instances based on Euclidean distance (KNN approach)
+    filteredInstances.sort((a, b) => {
+        const distanceA = Math.sqrt(
+            Math.pow(a["vCPU"] - vcpuInput, 2) + 
+            Math.pow(a["Memory (GiB)"] - memoryInput, 2)
+        );
+
+        const distanceB = Math.sqrt(
+            Math.pow(b["vCPU"] - vcpuInput, 2) + 
+            Math.pow(b["Memory (GiB)"] - memoryInput, 2)
+        );
+
+        return distanceA - distanceB;
+    });
+
+    currentIndex = 0;
+    displayInstance(currentIndex);
+}
+
+function displayInstance(index) {
+    const resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = "";
+
+    const instance = filteredInstances[index];
+
+    const div = document.createElement("div");
+    div.className = "instance";
+    div.innerHTML = `
+        <strong>${instance["Instance size"]}</strong> 
+        (vCPU: ${instance["vCPU"]}, Memory: ${instance["Memory (GiB)"]})
+    `;
+    resultsDiv.appendChild(div);
+
+    // Remove old "Next" button if it exists
+    const existingNextButton = document.getElementById("nextBtn");
+    if (existingNextButton) {
+        existingNextButton.remove();
+    }
+
+    // Add "Next" button if there are more instances
+    if (index + 1 < filteredInstances.length) {
+        const nextButton = document.createElement("button");
+        nextButton.id = "nextBtn";
+        nextButton.innerHTML = "Next Nearest Instance";
+        nextButton.onclick = function() {
+            currentIndex++;
+            displayInstance(currentIndex);
+        };
+        resultsDiv.appendChild(nextButton);
+    } else {
+        const noMoreButton = document.createElement("button");
+        noMoreButton.innerHTML = "No more instances";
+        noMoreButton.disabled = true;
+        resultsDiv.appendChild(noMoreButton);
+    }
+}
+
 </script>
 </html>
 
