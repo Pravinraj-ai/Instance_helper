@@ -91,747 +91,5218 @@
 </body>
 
 <script>
-    // Embedded JSON data
-    const cpuRamData = [
-    
-    {"Instance size":"t2.nano","vCPU":1,"Memory (GiB)":0.5},
-{"Instance size":"t2.micro","vCPU":1,"Memory (GiB)":1.0},
-{"Instance size":"t2.small","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c8g.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c7g.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c7gd.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c7gn.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c7a.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c6g.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c6gd.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"c6gn.medium","vCPU":1,"Memory (GiB)":2.0},
-{"Instance size":"m8g.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"m7g.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"m7gd.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"m7a.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"m6g.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"m6gd.medium","vCPU":1,"Memory (GiB)":4.0},
-{"Instance size":"is4gen.medium","vCPU":1,"Memory (GiB)":6.0},
-{"Instance size":"r8g.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"r7g.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"r7gd.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"r7a.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"r6g.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"r6gd.medium","vCPU":1,"Memory (GiB)":8.0},
-{"Instance size":"x8g.medium","vCPU":1,"Memory (GiB)":16.0},
-{"Instance size":"x2gd.medium","vCPU":1,"Memory (GiB)":16.0},
-{"Instance size":"t4g.nano","vCPU":2,"Memory (GiB)":0.5},
-{"Instance size":"t3.nano","vCPU":2,"Memory (GiB)":0.5},
-{"Instance size":"t3a.nano","vCPU":2,"Memory (GiB)":0.5},
-{"Instance size":"t4g.micro","vCPU":2,"Memory (GiB)":1.0},
-{"Instance size":"t3.micro","vCPU":2,"Memory (GiB)":1.0},
-{"Instance size":"t3a.micro","vCPU":2,"Memory (GiB)":1.0},
-{"Instance size":"t4g.small","vCPU":2,"Memory (GiB)":2.0},
-{"Instance size":"t3.small","vCPU":2,"Memory (GiB)":2.0},
-{"Instance size":"t3a.small","vCPU":2,"Memory (GiB)":2.0},
-{"Instance size":"c4.large","vCPU":2,"Memory (GiB)":3.75},
-{"Instance size":"t4g.medium","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"t3.medium","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"t3a.medium","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"t2.medium","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c8g.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7g.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7gd.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7gn.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7i.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7i-flex.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c7a.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6g.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6gd.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6gn.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6i.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6id.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6in.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c6a.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c5.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c5d.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c5a.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c5ad.large","vCPU":2,"Memory (GiB)":4.0},
-{"Instance size":"c5n.large","vCPU":2,"Memory (GiB)":5.25},
-{"Instance size":"m8g.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m7g.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m7gd.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m7i.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m7i-flex.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m7a.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6g.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6gd.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6i.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6id.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6in.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6idn.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m6a.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5d.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5n.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5dn.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5zn.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5a.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m5ad.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"m4.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"t4g.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"t3.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"t3a.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"t2.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"im4gn.large","vCPU":2,"Memory (GiB)":8.0},
-{"Instance size":"is4gen.large","vCPU":2,"Memory (GiB)":12.0},
-{"Instance size":"r4.large","vCPU":2,"Memory (GiB)":15.25},
-{"Instance size":"i3.large","vCPU":2,"Memory (GiB)":15.25},
-{"Instance size":"r8g.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r7g.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r7gd.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r7i.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r7iz.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r7a.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6g.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6gd.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6i.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6id.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6in.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6idn.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r6a.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5d.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5n.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5dn.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5b.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5a.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"r5ad.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"z1d.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"i8g.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"i7ie.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"i4g.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"i4i.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"i3en.large","vCPU":2,"Memory (GiB)":16.0},
-{"Instance size":"x8g.large","vCPU":2,"Memory (GiB)":32.0},
-{"Instance size":"x2gd.large","vCPU":2,"Memory (GiB)":32.0},
-{"Instance size":"c4.xlarge","vCPU":4,"Memory (GiB)":7.5},
-{"Instance size":"c8g.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7g.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7gd.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7gn.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7i.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7i-flex.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c7a.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6g.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6gd.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6gn.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6i.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6id.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6in.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c6a.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c5.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c5d.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c5a.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c5ad.xlarge","vCPU":4,"Memory (GiB)":8.0},
-{"Instance size":"c5n.xlarge","vCPU":4,"Memory (GiB)":10.5},
-{"Instance size":"m8g.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m7g.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m7gd.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m7i.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m7i-flex.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m7a.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6g.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6gd.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6i.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6id.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6in.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6idn.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m6a.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5d.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5n.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5dn.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5zn.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5a.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m5ad.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"m4.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"t4g.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"t3.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"t3a.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"t2.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"im4gn.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"d3en.xlarge","vCPU":4,"Memory (GiB)":16.0},
-{"Instance size":"is4gen.xlarge","vCPU":4,"Memory (GiB)":24.0},
-{"Instance size":"r4.xlarge","vCPU":4,"Memory (GiB)":30.5},
-{"Instance size":"i3.xlarge","vCPU":4,"Memory (GiB)":30.5},
-{"Instance size":"d2.xlarge","vCPU":4,"Memory (GiB)":30.5},
-{"Instance size":"r8g.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r7g.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r7gd.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r7i.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r7iz.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r7a.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6g.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6gd.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6i.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6id.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6in.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6idn.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r6a.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5d.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5n.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5dn.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5b.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5a.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"r5ad.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"z1d.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"i8g.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"i7ie.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"i4g.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"i4i.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"i3en.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"d3.xlarge","vCPU":4,"Memory (GiB)":32.0},
-{"Instance size":"x8g.xlarge","vCPU":4,"Memory (GiB)":64.0},
-{"Instance size":"x2gd.xlarge","vCPU":4,"Memory (GiB)":64.0},
-{"Instance size":"x1e.xlarge","vCPU":4,"Memory (GiB)":122.0},
-{"Instance size":"x2iedn.xlarge","vCPU":4,"Memory (GiB)":128.0},
-{"Instance size":"c4.2xlarge","vCPU":8,"Memory (GiB)":15.0},
-{"Instance size":"c8g.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7g.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7gd.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7gn.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7i.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7i-flex.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c7a.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6g.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6gd.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6gn.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6i.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6id.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6in.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c6a.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c5.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c5d.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c5a.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c5ad.2xlarge","vCPU":8,"Memory (GiB)":16.0},
-{"Instance size":"c5n.2xlarge","vCPU":8,"Memory (GiB)":21.0},
-{"Instance size":"m8g.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m7g.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m7gd.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m7i.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m7i-flex.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m7a.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6g.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6gd.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6i.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6id.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6in.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6idn.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m6a.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5d.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5n.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5dn.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5zn.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5a.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m5ad.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"m4.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"t4g.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"t3.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"t3a.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"t2.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"im4gn.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"d3en.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"h1.2xlarge","vCPU":8,"Memory (GiB)":32.0},
-{"Instance size":"is4gen.2xlarge","vCPU":8,"Memory (GiB)":48.0},
-{"Instance size":"r4.2xlarge","vCPU":8,"Memory (GiB)":61.0},
-{"Instance size":"i3.2xlarge","vCPU":8,"Memory (GiB)":61.0},
-{"Instance size":"d2.2xlarge","vCPU":8,"Memory (GiB)":61.0},
-{"Instance size":"r8g.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r7g.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r7gd.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r7i.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r7iz.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r7a.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6g.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6gd.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6i.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6id.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6in.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6idn.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r6a.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5d.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5n.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5dn.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5b.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5a.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"r5ad.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"z1d.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"i8g.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"i7ie.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"i4g.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"i4i.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"i3en.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"d3.2xlarge","vCPU":8,"Memory (GiB)":64.0},
-{"Instance size":"x8g.2xlarge","vCPU":8,"Memory (GiB)":128.0},
-{"Instance size":"x2gd.2xlarge","vCPU":8,"Memory (GiB)":128.0},
-{"Instance size":"x1e.2xlarge","vCPU":8,"Memory (GiB)":244.0},
-{"Instance size":"x2iedn.2xlarge","vCPU":8,"Memory (GiB)":256.0},
-{"Instance size":"x2iezn.2xlarge","vCPU":8,"Memory (GiB)":256.0},
-{"Instance size":"m5zn.3xlarge","vCPU":12,"Memory (GiB)":48.0},
-{"Instance size":"z1d.3xlarge","vCPU":12,"Memory (GiB)":96.0},
-{"Instance size":"i7ie.3xlarge","vCPU":12,"Memory (GiB)":96.0},
-{"Instance size":"i3en.3xlarge","vCPU":12,"Memory (GiB)":96.0},
-{"Instance size":"c4.4xlarge","vCPU":16,"Memory (GiB)":30.0},
-{"Instance size":"c8g.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7g.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7gd.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7gn.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7i.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7i-flex.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c7a.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6g.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6gd.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6gn.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6i.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6id.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6in.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c6a.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c5.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c5d.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c5a.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c5ad.4xlarge","vCPU":16,"Memory (GiB)":32.0},
-{"Instance size":"c5n.4xlarge","vCPU":16,"Memory (GiB)":42.0},
-{"Instance size":"m8g.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m7g.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m7gd.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m7i.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m7i-flex.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m7a.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6g.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6gd.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6i.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6id.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6in.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6idn.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m6a.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5d.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5n.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5dn.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5a.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m5ad.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"m4.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"im4gn.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"d3en.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"h1.4xlarge","vCPU":16,"Memory (GiB)":64.0},
-{"Instance size":"is4gen.4xlarge","vCPU":16,"Memory (GiB)":96.0},
-{"Instance size":"r4.4xlarge","vCPU":16,"Memory (GiB)":122.0},
-{"Instance size":"i3.4xlarge","vCPU":16,"Memory (GiB)":122.0},
-{"Instance size":"d2.4xlarge","vCPU":16,"Memory (GiB)":122.0},
-{"Instance size":"r8g.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r7g.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r7gd.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r7i.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r7iz.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r7a.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6g.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6gd.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6i.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6id.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6in.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6idn.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r6a.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5d.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5n.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5dn.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5b.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5a.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"r5ad.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"i8g.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"i4g.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"i4i.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"d3.4xlarge","vCPU":16,"Memory (GiB)":128.0},
-{"Instance size":"x8g.4xlarge","vCPU":16,"Memory (GiB)":256.0},
-{"Instance size":"x2gd.4xlarge","vCPU":16,"Memory (GiB)":256.0},
-{"Instance size":"x1e.4xlarge","vCPU":16,"Memory (GiB)":488.0},
-{"Instance size":"x2iedn.4xlarge","vCPU":16,"Memory (GiB)":512.0},
-{"Instance size":"x2iezn.4xlarge","vCPU":16,"Memory (GiB)":512.0},
-{"Instance size":"m5zn.6xlarge","vCPU":24,"Memory (GiB)":96.0},
-{"Instance size":"d3en.6xlarge","vCPU":24,"Memory (GiB)":96.0},
-{"Instance size":"z1d.6xlarge","vCPU":24,"Memory (GiB)":192.0},
-{"Instance size":"i7ie.6xlarge","vCPU":24,"Memory (GiB)":192.0},
-{"Instance size":"i3en.6xlarge","vCPU":24,"Memory (GiB)":192.0},
-{"Instance size":"x2iezn.6xlarge","vCPU":24,"Memory (GiB)":768.0},
-{"Instance size":"c8g.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7g.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7gd.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7gn.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7i.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7i-flex.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c7a.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6g.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6gd.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6gn.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6i.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6id.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6in.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c6a.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c5a.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"c5ad.8xlarge","vCPU":32,"Memory (GiB)":64.0},
-{"Instance size":"m8g.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m7g.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m7gd.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m7i.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m7i-flex.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m7a.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6g.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6gd.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6i.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6id.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6in.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6idn.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m6a.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5d.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5n.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5dn.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5a.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"m5ad.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"im4gn.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"d3en.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"h1.8xlarge","vCPU":32,"Memory (GiB)":128.0},
-{"Instance size":"is4gen.8xlarge","vCPU":32,"Memory (GiB)":192.0},
-{"Instance size":"r4.8xlarge","vCPU":32,"Memory (GiB)":244.0},
-{"Instance size":"i3.8xlarge","vCPU":32,"Memory (GiB)":244.0},
-{"Instance size":"r8g.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r7g.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r7gd.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r7i.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r7iz.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r7a.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6g.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6gd.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6i.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6id.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6in.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6idn.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r6a.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5d.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5n.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5dn.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5b.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5a.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"r5ad.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"i8g.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"i4g.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"i4i.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"d3.8xlarge","vCPU":32,"Memory (GiB)":256.0},
-{"Instance size":"x8g.8xlarge","vCPU":32,"Memory (GiB)":512.0},
-{"Instance size":"x2gd.8xlarge","vCPU":32,"Memory (GiB)":512.0},
-{"Instance size":"x1e.8xlarge","vCPU":32,"Memory (GiB)":976.0},
-{"Instance size":"x2iedn.8xlarge","vCPU":32,"Memory (GiB)":1024.0},
-{"Instance size":"x2iezn.8xlarge","vCPU":32,"Memory (GiB)":1024.0},
-{"Instance size":"c4.8xlarge","vCPU":36,"Memory (GiB)":60.0},
-{"Instance size":"c5.9xlarge","vCPU":36,"Memory (GiB)":72.0},
-{"Instance size":"c5d.9xlarge","vCPU":36,"Memory (GiB)":72.0},
-{"Instance size":"c5n.9xlarge","vCPU":36,"Memory (GiB)":96.0},
-{"Instance size":"d2.8xlarge","vCPU":36,"Memory (GiB)":244.0},
-{"Instance size":"m4.10xlarge","vCPU":40,"Memory (GiB)":160.0},
-{"Instance size":"c8g.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7g.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7gd.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7gn.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7i.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7i-flex.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c7a.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6g.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6gd.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6gn.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6i.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6id.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6in.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c6a.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c5.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c5d.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c5a.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"c5ad.12xlarge","vCPU":48,"Memory (GiB)":96.0},
-{"Instance size":"m8g.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m7g.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m7gd.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m7i.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m7i-flex.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m7a.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6g.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6gd.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6i.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6id.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6in.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6idn.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m6a.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5d.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5n.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5dn.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5zn.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5zn.metal","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5a.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"m5ad.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"d3en.12xlarge","vCPU":48,"Memory (GiB)":192.0},
-{"Instance size":"r8g.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r7g.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r7gd.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r7i.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r7iz.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r7a.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6g.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6gd.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6i.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6id.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6in.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6idn.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r6a.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5d.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5n.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5dn.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5b.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5a.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"r5ad.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"z1d.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"i8g.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"i7ie.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"i4i.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"i3en.12xlarge","vCPU":48,"Memory (GiB)":384.0},
-{"Instance size":"x8g.12xlarge","vCPU":48,"Memory (GiB)":768.0},
-{"Instance size":"x2gd.12xlarge","vCPU":48,"Memory (GiB)":768.0},
-{"Instance size":"x2iezn.12xlarge","vCPU":48,"Memory (GiB)":1536.0},
-{"Instance size":"x2iezn.metal","vCPU":48,"Memory (GiB)":1536.0},
-{"Instance size":"c8g.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7g.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7g.metal","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7gd.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7gd.metal","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7gn.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7gn.metal","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7i.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7i-flex.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c7a.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6g.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6g.metal","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6gd.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6gd.metal","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6gn.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6i.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6id.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6in.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c6a.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c5a.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"c5ad.16xlarge","vCPU":64,"Memory (GiB)":128.0},
-{"Instance size":"m8g.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7g.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7g.metal","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7gd.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7gd.metal","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7i.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7i-flex.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m7a.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6g.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6g.metal","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6gd.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6gd.metal","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6i.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6id.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6in.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6idn.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m6a.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5d.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5n.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5dn.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5a.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m5ad.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"m4.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"im4gn.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"h1.16xlarge","vCPU":64,"Memory (GiB)":256.0},
-{"Instance size":"r4.16xlarge","vCPU":64,"Memory (GiB)":488.0},
-{"Instance size":"i3.16xlarge","vCPU":64,"Memory (GiB)":488.0},
-{"Instance size":"r8g.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7g.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7g.metal","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7gd.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7gd.metal","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7i.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7iz.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7iz.metal-16xl","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r7a.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6g.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6g.metal","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6gd.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6gd.metal","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6i.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6id.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6in.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6idn.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r6a.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5d.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5n.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5dn.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5b.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5a.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"r5ad.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"i8g.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"i4g.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"i4i.16xlarge","vCPU":64,"Memory (GiB)":512.0},
-{"Instance size":"x1.16xlarge","vCPU":64,"Memory (GiB)":976.0},
-{"Instance size":"x8g.16xlarge","vCPU":64,"Memory (GiB)":1024.0},
-{"Instance size":"x2gd.16xlarge","vCPU":64,"Memory (GiB)":1024.0},
-{"Instance size":"x2gd.metal","vCPU":64,"Memory (GiB)":1024.0},
-{"Instance size":"x2idn.16xlarge","vCPU":64,"Memory (GiB)":1024.0},
-{"Instance size":"x1e.16xlarge","vCPU":64,"Memory (GiB)":1952.0},
-{"Instance size":"x2iedn.16xlarge","vCPU":64,"Memory (GiB)":2048.0},
-{"Instance size":"c5.18xlarge","vCPU":72,"Memory (GiB)":144.0},
-{"Instance size":"c5d.18xlarge","vCPU":72,"Memory (GiB)":144.0},
-{"Instance size":"c5n.18xlarge","vCPU":72,"Memory (GiB)":192.0},
-{"Instance size":"c5n.metal","vCPU":72,"Memory (GiB)":192.0},
-{"Instance size":"i3.metal","vCPU":72,"Memory (GiB)":512.0},
-{"Instance size":"i7ie.18xlarge","vCPU":72,"Memory (GiB)":576.0},
-{"Instance size":"c8g.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c8g.metal-24xl","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c7i.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c7i.metal-24xl","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c7a.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c6i.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c6id.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c6in.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c6a.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5.metal","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5d.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5d.metal","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5a.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"c5ad.24xlarge","vCPU":96,"Memory (GiB)":192.0},
-{"Instance size":"m8g.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m8g.metal-24xl","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m7i.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m7i.metal-24xl","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m7a.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m6i.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m6id.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m6in.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m6idn.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m6a.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5d.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5n.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5dn.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5a.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"m5ad.24xlarge","vCPU":96,"Memory (GiB)":384.0},
-{"Instance size":"r8g.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r8g.metal-24xl","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r7i.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r7i.metal-24xl","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r7a.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r6i.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r6id.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r6in.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r6idn.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r6a.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5d.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5n.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5dn.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5b.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5a.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"r5ad.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i8g.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i8g.metal-24xl","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i7ie.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i4i.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i3en.24xlarge","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"i3en.metal","vCPU":96,"Memory (GiB)":768.0},
-{"Instance size":"x8g.24xlarge","vCPU":96,"Memory (GiB)":1536.0},
-{"Instance size":"x8g.metal-24xl","vCPU":96,"Memory (GiB)":1536.0},
-{"Instance size":"x2idn.24xlarge","vCPU":96,"Memory (GiB)":1536.0},
-{"Instance size":"x2iedn.24xlarge","vCPU":96,"Memory (GiB)":3072.0},
-{"Instance size":"c7a.32xlarge","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6i.32xlarge","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6i.metal","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6id.32xlarge","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6id.metal","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6in.32xlarge","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6in.metal","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"c6a.32xlarge","vCPU":128,"Memory (GiB)":256.0},
-{"Instance size":"m7a.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6i.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6i.metal","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6id.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6id.metal","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6in.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6in.metal","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6idn.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6idn.metal","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"m6a.32xlarge","vCPU":128,"Memory (GiB)":512.0},
-{"Instance size":"r7iz.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r7iz.metal-32xl","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r7a.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6i.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6i.metal","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6id.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6id.metal","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6in.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6in.metal","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6idn.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6idn.metal","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"r6a.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"i4i.32xlarge","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"i4i.metal","vCPU":128,"Memory (GiB)":1024.0},
-{"Instance size":"x1.32xlarge","vCPU":128,"Memory (GiB)":1952.0},
-{"Instance size":"x2idn.32xlarge","vCPU":128,"Memory (GiB)":2048.0},
-{"Instance size":"x2idn.metal","vCPU":128,"Memory (GiB)":2048.0},
-{"Instance size":"x1e.32xlarge","vCPU":128,"Memory (GiB)":3904.0},
-{"Instance size":"x2iedn.32xlarge","vCPU":128,"Memory (GiB)":4096.0},
-{"Instance size":"x2iedn.metal","vCPU":128,"Memory (GiB)":4096.0},
-{"Instance size":"c8g.48xlarge","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c8g.metal-48xl","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c7i.48xlarge","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c7i.metal-48xl","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c7a.48xlarge","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c7a.metal-48xl","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c6a.48xlarge","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"c6a.metal","vCPU":192,"Memory (GiB)":384.0},
-{"Instance size":"m8g.48xlarge","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m8g.metal-48xl","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m7i.48xlarge","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m7i.metal-48xl","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m7a.48xlarge","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m7a.metal-48xl","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m6a.48xlarge","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"m6a.metal","vCPU":192,"Memory (GiB)":768.0},
-{"Instance size":"r8g.48xlarge","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r8g.metal-48xl","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r7i.48xlarge","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r7i.metal-48xl","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r7a.48xlarge","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r7a.metal-48xl","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r6a.48xlarge","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"r6a.metal","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"i7ie.48xlarge","vCPU":192,"Memory (GiB)":1536.0},
-{"Instance size":"x8g.48xlarge","vCPU":192,"Memory (GiB)":3072.0},
-{"Instance size":"x8g.metal-48xl","vCPU":192,"Memory (GiB)":3072.0},
-{"Instance size":"u7i-6tb.112xlarge","vCPU":448,"Memory (GiB)":6144.0},
-{"Instance size":"u7i-8tb.112xlarge","vCPU":448,"Memory (GiB)":8192.0},
-{"Instance size":"u7i-12tb.224xlarge","vCPU":896,"Memory (GiB)":12288.0},
-{"Instance size":"u7in-16tb.224xlarge","vCPU":896,"Memory (GiB)":16384.0},
-{"Instance size":"u7in-24tb.224xlarge","vCPU":896,"Memory (GiB)":24576.0},
-{"Instance size":"u7in-32tb.224xlarge","vCPU":896,"Memory (GiB)":32768.0},
-{"Instance size":"u7inh-32tb.480xlarge","vCPU":1920,"Memory (GiB)":32768.0}
+const cpuRamData = [
+    {
+        "API Name":"t2.nano",
+        "Instance Memory":0.5,
+        "vCPUs":1,
+        "Linux Reserved cost":31.536
+    },
+    {
+        "API Name":"t1.micro",
+        "Instance Memory":0.613,
+        "vCPUs":1,
+        "Linux Reserved cost":122.64
+    },
+    {
+        "API Name":"t2.micro",
+        "Instance Memory":1.0,
+        "vCPUs":1,
+        "Linux Reserved cost":63.072
+    },
+    {
+        "API Name":"m1.small",
+        "Instance Memory":1.7,
+        "vCPUs":1,
+        "Linux Reserved cost":245.28
+    },
+    {
+        "API Name":"t2.small",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":126.144
+    },
+    {
+        "API Name":"a1.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":141.036
+    },
+    {
+        "API Name":"c6g.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":187.464
+    },
+    {
+        "API Name":"c7g.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":209.364
+    },
+    {
+        "API Name":"c6gd.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":211.992
+    },
+    {
+        "API Name":"c8g.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":230.2128
+    },
+    {
+        "API Name":"c6gn.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":238.8852
+    },
+    {
+        "API Name":"c7gd.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":250.536
+    },
+    {
+        "API Name":"c7a.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":297.402
+    },
+    {
+        "API Name":"c7gn.medium",
+        "Instance Memory":2.0,
+        "vCPUs":1,
+        "Linux Reserved cost":344.268
+    },
+    {
+        "API Name":"m3.medium",
+        "Instance Memory":3.75,
+        "vCPUs":1,
+        "Linux Reserved cost":420.48
+    },
+    {
+        "API Name":"m1.medium",
+        "Instance Memory":3.75,
+        "vCPUs":1,
+        "Linux Reserved cost":490.56
+    },
+    {
+        "API Name":"m6g.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":211.116
+    },
+    {
+        "API Name":"m7g.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":236.52
+    },
+    {
+        "API Name":"m6gd.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":249.66
+    },
+    {
+        "API Name":"m8g.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":260.0844
+    },
+    {
+        "API Name":"m7gd.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":294.336
+    },
+    {
+        "API Name":"m7a.medium",
+        "Instance Memory":4.0,
+        "vCPUs":1,
+        "Linux Reserved cost":335.8584
+    },
+    {
+        "API Name":"is4gen.medium",
+        "Instance Memory":6.0,
+        "vCPUs":1,
+        "Linux Reserved cost":860.7576
+    },
+    {
+        "API Name":"r6g.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":278.568
+    },
+    {
+        "API Name":"r7g.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":310.104
+    },
+    {
+        "API Name":"r6gd.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":317.988
+    },
+    {
+        "API Name":"r8g.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":341.3772
+    },
+    {
+        "API Name":"r7gd.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":374.928
+    },
+    {
+        "API Name":"r7a.medium",
+        "Instance Memory":8.0,
+        "vCPUs":1,
+        "Linux Reserved cost":440.8032
+    },
+    {
+        "API Name":"x2gd.medium",
+        "Instance Memory":16.0,
+        "vCPUs":1,
+        "Linux Reserved cost":451.14
+    },
+    {
+        "API Name":"x8g.medium",
+        "Instance Memory":16.0,
+        "vCPUs":1,
+        "Linux Reserved cost":527.4396
+    },
+    {
+        "API Name":"t4g.nano",
+        "Instance Memory":0.5,
+        "vCPUs":2,
+        "Linux Reserved cost":22.776
+    },
+    {
+        "API Name":"t3a.nano",
+        "Instance Memory":0.5,
+        "vCPUs":2,
+        "Linux Reserved cost":25.404
+    },
+    {
+        "API Name":"t3.nano",
+        "Instance Memory":0.5,
+        "vCPUs":2,
+        "Linux Reserved cost":28.908
+    },
+    {
+        "API Name":"t4g.micro",
+        "Instance Memory":1.0,
+        "vCPUs":2,
+        "Linux Reserved cost":46.428
+    },
+    {
+        "API Name":"t3a.micro",
+        "Instance Memory":1.0,
+        "vCPUs":2,
+        "Linux Reserved cost":51.684
+    },
+    {
+        "API Name":"t3.micro",
+        "Instance Memory":1.0,
+        "vCPUs":2,
+        "Linux Reserved cost":56.94
+    },
+    {
+        "API Name":"c1.medium",
+        "Instance Memory":1.7,
+        "vCPUs":2,
+        "Linux Reserved cost":797.16
+    },
+    {
+        "API Name":"t4g.small",
+        "Instance Memory":2.0,
+        "vCPUs":2,
+        "Linux Reserved cost":91.98
+    },
+    {
+        "API Name":"t3a.small",
+        "Instance Memory":2.0,
+        "vCPUs":2,
+        "Linux Reserved cost":103.368
+    },
+    {
+        "API Name":"t3.small",
+        "Instance Memory":2.0,
+        "vCPUs":2,
+        "Linux Reserved cost":113.88
+    },
+    {
+        "API Name":"c4.large",
+        "Instance Memory":3.75,
+        "vCPUs":2,
+        "Linux Reserved cost":551.88
+    },
+    {
+        "API Name":"c3.large",
+        "Instance Memory":3.75,
+        "vCPUs":2,
+        "Linux Reserved cost":639.48
+    },
+    {
+        "API Name":"t4g.medium",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":184.836
+    },
+    {
+        "API Name":"t3a.medium",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":206.736
+    },
+    {
+        "API Name":"t3.medium",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":228.636
+    },
+    {
+        "API Name":"t2.medium",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":251.412
+    },
+    {
+        "API Name":"a1.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":281.196
+    },
+    {
+        "API Name":"c6g.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":374.928
+    },
+    {
+        "API Name":"c7g.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":418.728
+    },
+    {
+        "API Name":"c6gd.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":423.984
+    },
+    {
+        "API Name":"c5a.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":429.24
+    },
+    {
+        "API Name":"c6a.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":443.256
+    },
+    {
+        "API Name":"c8g.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":460.4256
+    },
+    {
+        "API Name":"c5.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":473.04
+    },
+    {
+        "API Name":"c5ad.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":473.04
+    },
+    {
+        "API Name":"c6gn.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":477.6828
+    },
+    {
+        "API Name":"c7i-flex.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":491.3484
+    },
+    {
+        "API Name":"c6i.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":492.5748
+    },
+    {
+        "API Name":"c7gd.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":501.072
+    },
+    {
+        "API Name":"c7i.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":517.1904
+    },
+    {
+        "API Name":"c5d.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":525.6
+    },
+    {
+        "API Name":"c6id.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":556.5228
+    },
+    {
+        "API Name":"c7a.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":594.804
+    },
+    {
+        "API Name":"c6in.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":625.8144
+    },
+    {
+        "API Name":"c7gn.large",
+        "Instance Memory":4.0,
+        "vCPUs":2,
+        "Linux Reserved cost":688.536
+    },
+    {
+        "API Name":"c5n.large",
+        "Instance Memory":5.25,
+        "vCPUs":2,
+        "Linux Reserved cost":595.68
+    },
+    {
+        "API Name":"m3.large",
+        "Instance Memory":7.5,
+        "vCPUs":2,
+        "Linux Reserved cost":832.2
+    },
+    {
+        "API Name":"m1.large",
+        "Instance Memory":7.5,
+        "vCPUs":2,
+        "Linux Reserved cost":981.12
+    },
+    {
+        "API Name":"t4g.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":368.796
+    },
+    {
+        "API Name":"t3a.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":412.596
+    },
+    {
+        "API Name":"m6g.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":423.108
+    },
+    {
+        "API Name":"t3.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":457.272
+    },
+    {
+        "API Name":"m7g.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":473.04
+    },
+    {
+        "API Name":"m5a.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":473.04
+    },
+    {
+        "API Name":"m6gd.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":499.32
+    },
+    {
+        "API Name":"m6a.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":500.634
+    },
+    {
+        "API Name":"t2.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":503.7
+    },
+    {
+        "API Name":"m8g.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":520.1688
+    },
+    {
+        "API Name":"m5.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":525.6
+    },
+    {
+        "API Name":"m4.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":543.12
+    },
+    {
+        "API Name":"m7i-flex.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":554.8584
+    },
+    {
+        "API Name":"m6i.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":556.26
+    },
+    {
+        "API Name":"m5ad.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":569.4
+    },
+    {
+        "API Name":"m7i.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":584.1168
+    },
+    {
+        "API Name":"m7gd.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":589.548
+    },
+    {
+        "API Name":"m5d.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":621.96
+    },
+    {
+        "API Name":"m6id.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":654.81
+    },
+    {
+        "API Name":"m5n.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":657.0
+    },
+    {
+        "API Name":"m7a.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":671.7168
+    },
+    {
+        "API Name":"m5dn.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":753.36
+    },
+    {
+        "API Name":"m6in.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":768.3396
+    },
+    {
+        "API Name":"m6idn.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":878.19
+    },
+    {
+        "API Name":"m5zn.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":911.916
+    },
+    {
+        "API Name":"im4gn.large",
+        "Instance Memory":8.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1021.854
+    },
+    {
+        "API Name":"is4gen.large",
+        "Instance Memory":12.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1721.6028
+    },
+    {
+        "API Name":"r4.large",
+        "Instance Memory":15.25,
+        "vCPUs":2,
+        "Linux Reserved cost":735.84
+    },
+    {
+        "API Name":"r3.large",
+        "Instance Memory":15.25,
+        "vCPUs":2,
+        "Linux Reserved cost":919.8
+    },
+    {
+        "API Name":"i3.large",
+        "Instance Memory":15.25,
+        "vCPUs":2,
+        "Linux Reserved cost":937.32
+    },
+    {
+        "API Name":"r6g.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":556.26
+    },
+    {
+        "API Name":"r7g.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":620.208
+    },
+    {
+        "API Name":"r5a.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":621.96
+    },
+    {
+        "API Name":"r6gd.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":635.976
+    },
+    {
+        "API Name":"r6a.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":657.0876
+    },
+    {
+        "API Name":"r8g.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":682.7544
+    },
+    {
+        "API Name":"r5.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":692.04
+    },
+    {
+        "API Name":"r5ad.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":727.08
+    },
+    {
+        "API Name":"r6i.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":730.146
+    },
+    {
+        "API Name":"r7gd.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":748.98
+    },
+    {
+        "API Name":"r7i.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":766.6752
+    },
+    {
+        "API Name":"r5d.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":797.16
+    },
+    {
+        "API Name":"r5b.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":822.3012
+    },
+    {
+        "API Name":"r5n.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":823.44
+    },
+    {
+        "API Name":"r6id.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":832.4628
+    },
+    {
+        "API Name":"i4g.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":877.9272
+    },
+    {
+        "API Name":"r7a.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":881.694
+    },
+    {
+        "API Name":"r5dn.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":919.8
+    },
+    {
+        "API Name":"r6in.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":962.1108
+    },
+    {
+        "API Name":"i4i.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":972.36
+    },
+    {
+        "API Name":"z1d.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1024.92
+    },
+    {
+        "API Name":"r7iz.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1026.4968
+    },
+    {
+        "API Name":"r6idn.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1078.356
+    },
+    {
+        "API Name":"i3en.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1349.04
+    },
+    {
+        "API Name":"i7ie.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1454.827
+    },
+    {
+        "API Name":"i8g.large",
+        "Instance Memory":16.0,
+        "vCPUs":2,
+        "Linux Reserved cost":960.555
+    },
+    {
+        "API Name":"m2.xlarge",
+        "Instance Memory":17.1,
+        "vCPUs":2,
+        "Linux Reserved cost":972.36
+    },
+    {
+        "API Name":"x2gd.large",
+        "Instance Memory":32.0,
+        "vCPUs":2,
+        "Linux Reserved cost":901.404
+    },
+    {
+        "API Name":"x8g.large",
+        "Instance Memory":32.0,
+        "vCPUs":2,
+        "Linux Reserved cost":1054.7916
+    },
+    {
+        "API Name":"c4.xlarge",
+        "Instance Memory":7.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1103.76
+    },
+    {
+        "API Name":"c3.xlarge",
+        "Instance Memory":7.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1278.96
+    },
+    {
+        "API Name":"a1.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":563.268
+    },
+    {
+        "API Name":"c6g.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":750.732
+    },
+    {
+        "API Name":"c7g.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":836.58
+    },
+    {
+        "API Name":"c6gd.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":847.968
+    },
+    {
+        "API Name":"c5a.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":849.72
+    },
+    {
+        "API Name":"c6a.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":886.5996
+    },
+    {
+        "API Name":"c8g.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":920.8512
+    },
+    {
+        "API Name":"c5.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":937.32
+    },
+    {
+        "API Name":"c5ad.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":946.08
+    },
+    {
+        "API Name":"c6gn.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":955.3656
+    },
+    {
+        "API Name":"c7i-flex.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":982.6092
+    },
+    {
+        "API Name":"c6i.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":985.1496
+    },
+    {
+        "API Name":"c7gd.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1001.268
+    },
+    {
+        "API Name":"c7i.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1034.3808
+    },
+    {
+        "API Name":"c5d.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1059.96
+    },
+    {
+        "API Name":"c6id.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1112.958
+    },
+    {
+        "API Name":"c7a.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1189.5204
+    },
+    {
+        "API Name":"c6in.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1251.6288
+    },
+    {
+        "API Name":"inf1.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1261.44
+    },
+    {
+        "API Name":"c7gn.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1377.072
+    },
+    {
+        "API Name":"g5g.xlarge",
+        "Instance Memory":8.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2317.896
+    },
+    {
+        "API Name":"c5n.xlarge",
+        "Instance Memory":10.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1191.36
+    },
+    {
+        "API Name":"m3.xlarge",
+        "Instance Memory":15.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1664.4
+    },
+    {
+        "API Name":"m1.xlarge",
+        "Instance Memory":15.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1962.24
+    },
+    {
+        "API Name":"t4g.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":738.468
+    },
+    {
+        "API Name":"t3a.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":826.068
+    },
+    {
+        "API Name":"m6g.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":846.216
+    },
+    {
+        "API Name":"t3.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":913.668
+    },
+    {
+        "API Name":"m7g.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":946.08
+    },
+    {
+        "API Name":"m5a.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":946.08
+    },
+    {
+        "API Name":"m6gd.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":997.764
+    },
+    {
+        "API Name":"m6a.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1001.3556
+    },
+    {
+        "API Name":"t2.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1007.4
+    },
+    {
+        "API Name":"m8g.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1040.25
+    },
+    {
+        "API Name":"m5.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1059.96
+    },
+    {
+        "API Name":"m4.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1085.364
+    },
+    {
+        "API Name":"m7i-flex.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1109.7168
+    },
+    {
+        "API Name":"m6i.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1112.6076
+    },
+    {
+        "API Name":"m5ad.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1138.8
+    },
+    {
+        "API Name":"m7i.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1168.2336
+    },
+    {
+        "API Name":"m7gd.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1178.22
+    },
+    {
+        "API Name":"m5d.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1243.92
+    },
+    {
+        "API Name":"m6id.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1309.62
+    },
+    {
+        "API Name":"m5n.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1314.0
+    },
+    {
+        "API Name":"m7a.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1343.4336
+    },
+    {
+        "API Name":"m5dn.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1497.96
+    },
+    {
+        "API Name":"m6in.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1536.7668
+    },
+    {
+        "API Name":"m6idn.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1756.2924
+    },
+    {
+        "API Name":"m5zn.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1822.956
+    },
+    {
+        "API Name":"im4gn.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2043.7956
+    },
+    {
+        "API Name":"g4ad.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2088.9972
+    },
+    {
+        "API Name":"d3en.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2899.56
+    },
+    {
+        "API Name":"g4dn.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2899.56
+    },
+    {
+        "API Name":"inf2.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":4184.3892
+    },
+    {
+        "API Name":"g6.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":4589.5392
+    },
+    {
+        "API Name":"g5.xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":4,
+        "Linux Reserved cost":5551.9128
+    },
+    {
+        "API Name":"is4gen.xlarge",
+        "Instance Memory":24.0,
+        "vCPUs":4,
+        "Linux Reserved cost":3443.2056
+    },
+    {
+        "API Name":"r4.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1471.68
+    },
+    {
+        "API Name":"r3.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1830.84
+    },
+    {
+        "API Name":"i3.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":1874.64
+    },
+    {
+        "API Name":"d2.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":3521.52
+    },
+    {
+        "API Name":"i2.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":3714.24
+    },
+    {
+        "API Name":"g3s.xlarge",
+        "Instance Memory":30.5,
+        "vCPUs":4,
+        "Linux Reserved cost":4198.23
+    },
+    {
+        "API Name":"r6g.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1112.52
+    },
+    {
+        "API Name":"r7g.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1241.292
+    },
+    {
+        "API Name":"r5a.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1243.92
+    },
+    {
+        "API Name":"r6gd.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1271.952
+    },
+    {
+        "API Name":"r6a.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1314.2628
+    },
+    {
+        "API Name":"r8g.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1365.5088
+    },
+    {
+        "API Name":"r5.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1392.84
+    },
+    {
+        "API Name":"r5ad.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1445.4
+    },
+    {
+        "API Name":"r6i.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1460.292
+    },
+    {
+        "API Name":"r7gd.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1497.96
+    },
+    {
+        "API Name":"r7i.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1533.2628
+    },
+    {
+        "API Name":"r5d.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1585.56
+    },
+    {
+        "API Name":"r5b.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1644.6024
+    },
+    {
+        "API Name":"r5n.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1646.88
+    },
+    {
+        "API Name":"r6id.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1664.838
+    },
+    {
+        "API Name":"i4g.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1755.942
+    },
+    {
+        "API Name":"r7a.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1763.3004
+    },
+    {
+        "API Name":"r5dn.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1839.6
+    },
+    {
+        "API Name":"r6in.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1924.2216
+    },
+    {
+        "API Name":"i4i.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1953.48
+    },
+    {
+        "API Name":"z1d.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2049.84
+    },
+    {
+        "API Name":"r7iz.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2052.9936
+    },
+    {
+        "API Name":"r6idn.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2156.6244
+    },
+    {
+        "API Name":"i3en.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2698.08
+    },
+    {
+        "API Name":"d3.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2759.4
+    },
+    {
+        "API Name":"g6e.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":10270.4868
+    },
+    {
+        "API Name":"i7ie.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2909.653
+    },
+    {
+        "API Name":"i8g.xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1921.11
+    },
+    {
+        "API Name":"m2.2xlarge",
+        "Instance Memory":34.2,
+        "vCPUs":4,
+        "Linux Reserved cost":1944.72
+    },
+    {
+        "API Name":"p2.xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":4,
+        "Linux Reserved cost":5037.876
+    },
+    {
+        "API Name":"x2gd.xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":4,
+        "Linux Reserved cost":1802.808
+    },
+    {
+        "API Name":"x8g.xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":4,
+        "Linux Reserved cost":2109.6708
+    },
+    {
+        "API Name":"x1e.xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":4,
+        "Linux Reserved cost":4502.64
+    },
+    {
+        "API Name":"x2iedn.xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":4,
+        "Linux Reserved cost":4493.2668
+    },
+    {
+        "API Name":"c1.xlarge",
+        "Instance Memory":7.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3188.64
+    },
+    {
+        "API Name":"c4.2xlarge",
+        "Instance Memory":15.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2207.52
+    },
+    {
+        "API Name":"c3.2xlarge",
+        "Instance Memory":15.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2557.92
+    },
+    {
+        "API Name":"g2.2xlarge",
+        "Instance Memory":15.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3638.466
+    },
+    {
+        "API Name":"a1.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1125.66
+    },
+    {
+        "API Name":"c6g.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1501.464
+    },
+    {
+        "API Name":"c7g.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1674.036
+    },
+    {
+        "API Name":"c6gd.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1695.06
+    },
+    {
+        "API Name":"c5a.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1699.44
+    },
+    {
+        "API Name":"c6a.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1773.1992
+    },
+    {
+        "API Name":"c8g.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1841.7024
+    },
+    {
+        "API Name":"c5.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1874.64
+    },
+    {
+        "API Name":"c5ad.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1900.92
+    },
+    {
+        "API Name":"c6gn.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1910.8188
+    },
+    {
+        "API Name":"c7i-flex.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1965.306
+    },
+    {
+        "API Name":"c6i.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1970.2116
+    },
+    {
+        "API Name":"inf1.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1997.28
+    },
+    {
+        "API Name":"c7gd.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2003.412
+    },
+    {
+        "API Name":"c7i.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2068.7616
+    },
+    {
+        "API Name":"c5d.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2119.92
+    },
+    {
+        "API Name":"c6id.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2225.916
+    },
+    {
+        "API Name":"c7a.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2379.1284
+    },
+    {
+        "API Name":"c6in.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2503.3452
+    },
+    {
+        "API Name":"c7gn.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2755.02
+    },
+    {
+        "API Name":"g5g.2xlarge",
+        "Instance Memory":16.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3068.628
+    },
+    {
+        "API Name":"c5n.2xlarge",
+        "Instance Memory":21.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2382.72
+    },
+    {
+        "API Name":"m3.2xlarge",
+        "Instance Memory":30.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3328.8
+    },
+    {
+        "API Name":"t4g.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1476.936
+    },
+    {
+        "API Name":"t3a.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1652.136
+    },
+    {
+        "API Name":"m6g.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1692.432
+    },
+    {
+        "API Name":"t3.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1827.336
+    },
+    {
+        "API Name":"m7g.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1891.284
+    },
+    {
+        "API Name":"m5a.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1900.92
+    },
+    {
+        "API Name":"m6gd.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":1995.528
+    },
+    {
+        "API Name":"m6a.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2002.6236
+    },
+    {
+        "API Name":"t2.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2014.8
+    },
+    {
+        "API Name":"m8g.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2080.5
+    },
+    {
+        "API Name":"m5.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2119.92
+    },
+    {
+        "API Name":"m4.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2170.728
+    },
+    {
+        "API Name":"m7i-flex.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2219.4336
+    },
+    {
+        "API Name":"m6i.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2225.2152
+    },
+    {
+        "API Name":"m5ad.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2277.6
+    },
+    {
+        "API Name":"m7i.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2336.4672
+    },
+    {
+        "API Name":"m7gd.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2357.316
+    },
+    {
+        "API Name":"m5d.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2496.6
+    },
+    {
+        "API Name":"m6id.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2619.24
+    },
+    {
+        "API Name":"m5n.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2628.0
+    },
+    {
+        "API Name":"m7a.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2686.8672
+    },
+    {
+        "API Name":"h1.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2785.68
+    },
+    {
+        "API Name":"g4ad.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2986.6344
+    },
+    {
+        "API Name":"m5dn.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3004.68
+    },
+    {
+        "API Name":"m6in.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3073.5336
+    },
+    {
+        "API Name":"m6idn.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3512.5848
+    },
+    {
+        "API Name":"m5zn.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3645.912
+    },
+    {
+        "API Name":"im4gn.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4087.5912
+    },
+    {
+        "API Name":"g4dn.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4152.24
+    },
+    {
+        "API Name":"g6.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":5575.0392
+    },
+    {
+        "API Name":"d3en.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":5799.12
+    },
+    {
+        "API Name":"g5.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":6688.7856
+    },
+    {
+        "API Name":"trn1.2xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":8,
+        "Linux Reserved cost":7242.8556
+    },
+    {
+        "API Name":"is4gen.2xlarge",
+        "Instance Memory":48.0,
+        "vCPUs":8,
+        "Linux Reserved cost":6886.3236
+    },
+    {
+        "API Name":"r4.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2943.36
+    },
+    {
+        "API Name":"r3.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3661.68
+    },
+    {
+        "API Name":"i3.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3749.28
+    },
+    {
+        "API Name":"d2.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":7043.04
+    },
+    {
+        "API Name":"i2.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":7428.48
+    },
+    {
+        "API Name":"p3.2xlarge",
+        "Instance Memory":61.0,
+        "vCPUs":8,
+        "Linux Reserved cost":18290.88
+    },
+    {
+        "API Name":"r6g.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2225.04
+    },
+    {
+        "API Name":"r7g.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2482.584
+    },
+    {
+        "API Name":"r5a.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2496.6
+    },
+    {
+        "API Name":"r6gd.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2543.028
+    },
+    {
+        "API Name":"r6a.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2628.5256
+    },
+    {
+        "API Name":"r8g.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2730.93
+    },
+    {
+        "API Name":"r5.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2785.68
+    },
+    {
+        "API Name":"r5ad.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2890.8
+    },
+    {
+        "API Name":"r6i.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2920.584
+    },
+    {
+        "API Name":"r7gd.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":2996.796
+    },
+    {
+        "API Name":"r7i.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3066.6132
+    },
+    {
+        "API Name":"r5d.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3179.88
+    },
+    {
+        "API Name":"r5n.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3285.0
+    },
+    {
+        "API Name":"r5b.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3289.2048
+    },
+    {
+        "API Name":"r6id.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3329.676
+    },
+    {
+        "API Name":"i4g.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3511.7964
+    },
+    {
+        "API Name":"r7a.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3526.6884
+    },
+    {
+        "API Name":"r5dn.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3687.96
+    },
+    {
+        "API Name":"r6in.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3848.3556
+    },
+    {
+        "API Name":"i4i.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3898.2
+    },
+    {
+        "API Name":"r7iz.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4105.9872
+    },
+    {
+        "API Name":"z1d.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4108.44
+    },
+    {
+        "API Name":"r6idn.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4313.2488
+    },
+    {
+        "API Name":"i3en.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":5396.16
+    },
+    {
+        "API Name":"d3.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":5510.04
+    },
+    {
+        "API Name":"g6e.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":12373.5876
+    },
+    {
+        "API Name":"i7ie.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":5819.307
+    },
+    {
+        "API Name":"i8g.2xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3842.22
+    },
+    {
+        "API Name":"m2.4xlarge",
+        "Instance Memory":68.4,
+        "vCPUs":8,
+        "Linux Reserved cost":3889.44
+    },
+    {
+        "API Name":"f1.2xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":8,
+        "Linux Reserved cost":9776.16
+    },
+    {
+        "API Name":"x2gd.2xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":8,
+        "Linux Reserved cost":3606.492
+    },
+    {
+        "API Name":"x8g.2xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":8,
+        "Linux Reserved cost":4219.3416
+    },
+    {
+        "API Name":"x1e.2xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":8,
+        "Linux Reserved cost":9005.28
+    },
+    {
+        "API Name":"x2iedn.2xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":8,
+        "Linux Reserved cost":8986.5336
+    },
+    {
+        "API Name":"x2iezn.2xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":8,
+        "Linux Reserved cost":8995.644
+    },
+    {
+        "API Name":"vt1.3xlarge",
+        "Instance Memory":24.0,
+        "vCPUs":12,
+        "Linux Reserved cost":3587.22
+    },
+    {
+        "API Name":"m5zn.3xlarge",
+        "Instance Memory":48.0,
+        "vCPUs":12,
+        "Linux Reserved cost":5468.868
+    },
+    {
+        "API Name":"z1d.3xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":12,
+        "Linux Reserved cost":6158.28
+    },
+    {
+        "API Name":"i3en.3xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":12,
+        "Linux Reserved cost":8094.24
+    },
+    {
+        "API Name":"i7ie.3xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":12,
+        "Linux Reserved cost":8728.96
+    },
+    {
+        "API Name":"c4.4xlarge",
+        "Instance Memory":30.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4415.04
+    },
+    {
+        "API Name":"c3.4xlarge",
+        "Instance Memory":30.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5115.84
+    },
+    {
+        "API Name":"a1.metal",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":2251.32
+    },
+    {
+        "API Name":"a1.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":2251.32
+    },
+    {
+        "API Name":"c6g.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3002.052
+    },
+    {
+        "API Name":"c7g.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3348.072
+    },
+    {
+        "API Name":"c6gd.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3390.996
+    },
+    {
+        "API Name":"c5a.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3398.88
+    },
+    {
+        "API Name":"c6a.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3546.3984
+    },
+    {
+        "API Name":"c8g.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3683.3172
+    },
+    {
+        "API Name":"c5.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3749.28
+    },
+    {
+        "API Name":"c5ad.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3793.08
+    },
+    {
+        "API Name":"c6gn.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3821.55
+    },
+    {
+        "API Name":"c7i-flex.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3930.612
+    },
+    {
+        "API Name":"c6i.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3940.4232
+    },
+    {
+        "API Name":"c7gd.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4006.824
+    },
+    {
+        "API Name":"c7i.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4137.4356
+    },
+    {
+        "API Name":"c5d.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4239.84
+    },
+    {
+        "API Name":"c6id.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4451.832
+    },
+    {
+        "API Name":"g5g.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4569.216
+    },
+    {
+        "API Name":"c7a.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4758.1692
+    },
+    {
+        "API Name":"c6in.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5006.6904
+    },
+    {
+        "API Name":"c7gn.4xlarge",
+        "Instance Memory":32.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5510.04
+    },
+    {
+        "API Name":"c5n.4xlarge",
+        "Instance Memory":42.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4765.44
+    },
+    {
+        "API Name":"m6g.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3384.864
+    },
+    {
+        "API Name":"m7g.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3782.568
+    },
+    {
+        "API Name":"m5a.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3793.08
+    },
+    {
+        "API Name":"m6gd.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":3991.056
+    },
+    {
+        "API Name":"m6a.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4005.3348
+    },
+    {
+        "API Name":"m8g.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4161.0876
+    },
+    {
+        "API Name":"m5.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4239.84
+    },
+    {
+        "API Name":"m4.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4341.456
+    },
+    {
+        "API Name":"m7i-flex.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4438.9548
+    },
+    {
+        "API Name":"m6i.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4450.3428
+    },
+    {
+        "API Name":"m5ad.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4546.44
+    },
+    {
+        "API Name":"m7i.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4672.8468
+    },
+    {
+        "API Name":"m7gd.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4714.632
+    },
+    {
+        "API Name":"g4ad.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4784.7996
+    },
+    {
+        "API Name":"m5d.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4993.2
+    },
+    {
+        "API Name":"m6id.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5238.48
+    },
+    {
+        "API Name":"m5n.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5256.0
+    },
+    {
+        "API Name":"m7a.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5373.822
+    },
+    {
+        "API Name":"h1.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5571.36
+    },
+    {
+        "API Name":"m5dn.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6000.6
+    },
+    {
+        "API Name":"m6in.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6147.0672
+    },
+    {
+        "API Name":"g4dn.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6648.84
+    },
+    {
+        "API Name":"m6idn.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7025.1696
+    },
+    {
+        "API Name":"g6.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7545.864
+    },
+    {
+        "API Name":"im4gn.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8175.1824
+    },
+    {
+        "API Name":"g5.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8962.5312
+    },
+    {
+        "API Name":"d3en.4xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":16,
+        "Linux Reserved cost":11607.0
+    },
+    {
+        "API Name":"is4gen.4xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":16,
+        "Linux Reserved cost":13772.7348
+    },
+    {
+        "API Name":"r4.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5886.72
+    },
+    {
+        "API Name":"r3.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7323.36
+    },
+    {
+        "API Name":"i3.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7507.32
+    },
+    {
+        "API Name":"d2.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":14086.08
+    },
+    {
+        "API Name":"i2.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":14856.96
+    },
+    {
+        "API Name":"g3.4xlarge",
+        "Instance Memory":122.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6381.31
+    },
+    {
+        "API Name":"r6g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4450.08
+    },
+    {
+        "API Name":"r7g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4965.168
+    },
+    {
+        "API Name":"r5a.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":4993.2
+    },
+    {
+        "API Name":"r6gd.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5086.056
+    },
+    {
+        "API Name":"r6a.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5256.9636
+    },
+    {
+        "API Name":"r8g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5461.86
+    },
+    {
+        "API Name":"r5.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5562.6
+    },
+    {
+        "API Name":"r5ad.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5781.6
+    },
+    {
+        "API Name":"r6i.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5841.0804
+    },
+    {
+        "API Name":"r7gd.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":5993.592
+    },
+    {
+        "API Name":"r7i.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6133.1388
+    },
+    {
+        "API Name":"r5d.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6359.76
+    },
+    {
+        "API Name":"r5b.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6578.4096
+    },
+    {
+        "API Name":"r5n.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6578.76
+    },
+    {
+        "API Name":"r6id.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":6659.352
+    },
+    {
+        "API Name":"i4g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7023.5928
+    },
+    {
+        "API Name":"r7a.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7053.3768
+    },
+    {
+        "API Name":"r5dn.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7375.92
+    },
+    {
+        "API Name":"r6in.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7696.7112
+    },
+    {
+        "API Name":"i4i.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7805.16
+    },
+    {
+        "API Name":"r7iz.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8211.9744
+    },
+    {
+        "API Name":"r6idn.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8626.5852
+    },
+    {
+        "API Name":"gr6.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8777.6952
+    },
+    {
+        "API Name":"d3.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":11028.84
+    },
+    {
+        "API Name":"hpc7g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":11611.38
+    },
+    {
+        "API Name":"g6e.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":16579.7892
+    },
+    {
+        "API Name":"i8g.4xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7684.44
+    },
+    {
+        "API Name":"f1.4xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":16,
+        "Linux Reserved cost":19543.56
+    },
+    {
+        "API Name":"x2gd.4xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":16,
+        "Linux Reserved cost":7212.108
+    },
+    {
+        "API Name":"x8g.4xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":16,
+        "Linux Reserved cost":8438.5956
+    },
+    {
+        "API Name":"x1e.4xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":16,
+        "Linux Reserved cost":18010.56
+    },
+    {
+        "API Name":"x2iedn.4xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":16,
+        "Linux Reserved cost":17973.0672
+    },
+    {
+        "API Name":"x2iezn.4xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":16,
+        "Linux Reserved cost":17991.288
+    },
+    {
+        "API Name":"inf1.6xlarge",
+        "Instance Memory":48.0,
+        "vCPUs":24,
+        "Linux Reserved cost":6517.44
+    },
+    {
+        "API Name":"vt1.6xlarge",
+        "Instance Memory":48.0,
+        "vCPUs":24,
+        "Linux Reserved cost":7174.44
+    },
+    {
+        "API Name":"m5zn.6xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":24,
+        "Linux Reserved cost":10938.612
+    },
+    {
+        "API Name":"d3en.6xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":24,
+        "Linux Reserved cost":17406.12
+    },
+    {
+        "API Name":"z1d.6xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":24,
+        "Linux Reserved cost":12316.56
+    },
+    {
+        "API Name":"i3en.6xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":24,
+        "Linux Reserved cost":16179.72
+    },
+    {
+        "API Name":"i7ie.6xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":24,
+        "Linux Reserved cost":17457.92
+    },
+    {
+        "API Name":"f2.6xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":24,
+        "Linux Reserved cost":11083.33
+    },
+    {
+        "API Name":"x2iezn.6xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":24,
+        "Linux Reserved cost":26986.932
+    },
+    {
+        "API Name":"c3.8xlarge",
+        "Instance Memory":60.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10231.68
+    },
+    {
+        "API Name":"g2.8xlarge",
+        "Instance Memory":60.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14553.86
+    },
+    {
+        "API Name":"c6g.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":6004.104
+    },
+    {
+        "API Name":"c7g.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":6696.144
+    },
+    {
+        "API Name":"c6gd.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":6781.116
+    },
+    {
+        "API Name":"c5a.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":6797.76
+    },
+    {
+        "API Name":"c6a.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7092.7968
+    },
+    {
+        "API Name":"c8g.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7366.722
+    },
+    {
+        "API Name":"g5g.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7572.144
+    },
+    {
+        "API Name":"c5ad.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7594.92
+    },
+    {
+        "API Name":"c6gn.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7643.1876
+    },
+    {
+        "API Name":"c7i-flex.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7861.1364
+    },
+    {
+        "API Name":"c6i.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7880.8464
+    },
+    {
+        "API Name":"c7gd.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8013.648
+    },
+    {
+        "API Name":"c7i.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8274.8712
+    },
+    {
+        "API Name":"c6id.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8903.664
+    },
+    {
+        "API Name":"c7a.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9516.3384
+    },
+    {
+        "API Name":"c6in.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10013.2932
+    },
+    {
+        "API Name":"c7gn.8xlarge",
+        "Instance Memory":64.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11020.08
+    },
+    {
+        "API Name":"m6g.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":6769.728
+    },
+    {
+        "API Name":"m7g.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7566.012
+    },
+    {
+        "API Name":"m5a.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7594.92
+    },
+    {
+        "API Name":"m6gd.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":7982.112
+    },
+    {
+        "API Name":"m6a.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8010.6696
+    },
+    {
+        "API Name":"m8g.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8322.1752
+    },
+    {
+        "API Name":"m5.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8479.68
+    },
+    {
+        "API Name":"m7i-flex.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8877.9096
+    },
+    {
+        "API Name":"m6i.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8900.6856
+    },
+    {
+        "API Name":"m5ad.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9092.88
+    },
+    {
+        "API Name":"m7i.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9345.7812
+    },
+    {
+        "API Name":"m7gd.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9429.264
+    },
+    {
+        "API Name":"g4ad.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9569.5992
+    },
+    {
+        "API Name":"m5d.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9977.64
+    },
+    {
+        "API Name":"m6id.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10476.8724
+    },
+    {
+        "API Name":"m5n.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10512.0
+    },
+    {
+        "API Name":"m7a.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10747.644
+    },
+    {
+        "API Name":"inf2.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10860.21
+    },
+    {
+        "API Name":"h1.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11142.72
+    },
+    {
+        "API Name":"g6.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11487.6012
+    },
+    {
+        "API Name":"hpc7g.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11611.38
+    },
+    {
+        "API Name":"m5dn.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12009.96
+    },
+    {
+        "API Name":"g4dn.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12009.96
+    },
+    {
+        "API Name":"m6in.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12294.1344
+    },
+    {
+        "API Name":"g5.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":13510.0224
+    },
+    {
+        "API Name":"m6idn.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14050.4268
+    },
+    {
+        "API Name":"im4gn.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":16350.3648
+    },
+    {
+        "API Name":"d3en.8xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":32,
+        "Linux Reserved cost":23210.7588
+    },
+    {
+        "API Name":"is4gen.8xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":32,
+        "Linux Reserved cost":27545.4696
+    },
+    {
+        "API Name":"r4.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11773.44
+    },
+    {
+        "API Name":"r3.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14646.72
+    },
+    {
+        "API Name":"i3.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":15014.64
+    },
+    {
+        "API Name":"i2.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":29713.92
+    },
+    {
+        "API Name":"p3.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":73181.04
+    },
+    {
+        "API Name":"g3.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12762.62
+    },
+    {
+        "API Name":"cr1.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":32,
+        "Linux Reserved cost":19591.74
+    },
+    {
+        "API Name":"r6g.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":8901.036
+    },
+    {
+        "API Name":"r7g.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9929.46
+    },
+    {
+        "API Name":"r5a.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":9977.64
+    },
+    {
+        "API Name":"r6gd.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10172.112
+    },
+    {
+        "API Name":"r6a.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10514.0148
+    },
+    {
+        "API Name":"r8g.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":10923.8076
+    },
+    {
+        "API Name":"r5.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11125.2
+    },
+    {
+        "API Name":"r5ad.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11563.2
+    },
+    {
+        "API Name":"r6i.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11682.1608
+    },
+    {
+        "API Name":"r7gd.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":11987.184
+    },
+    {
+        "API Name":"r7i.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12266.2776
+    },
+    {
+        "API Name":"r5d.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":12719.52
+    },
+    {
+        "API Name":"r5b.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":13156.8192
+    },
+    {
+        "API Name":"r5n.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":13157.52
+    },
+    {
+        "API Name":"r6id.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":13318.704
+    },
+    {
+        "API Name":"gr6.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":13951.2636
+    },
+    {
+        "API Name":"i4g.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14047.1856
+    },
+    {
+        "API Name":"r7a.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14106.7536
+    },
+    {
+        "API Name":"r5dn.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14743.08
+    },
+    {
+        "API Name":"r6in.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":15393.51
+    },
+    {
+        "API Name":"i4i.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":15610.32
+    },
+    {
+        "API Name":"r7iz.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":16423.9488
+    },
+    {
+        "API Name":"r6idn.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":17253.0828
+    },
+    {
+        "API Name":"d3.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":22050.4968
+    },
+    {
+        "API Name":"g6e.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":24992.1924
+    },
+    {
+        "API Name":"i8g.8xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":32,
+        "Linux Reserved cost":15368.88
+    },
+    {
+        "API Name":"p2.8xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":32,
+        "Linux Reserved cost":40303.01
+    },
+    {
+        "API Name":"x2gd.8xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":32,
+        "Linux Reserved cost":14424.216
+    },
+    {
+        "API Name":"x8g.8xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":32,
+        "Linux Reserved cost":16877.2788
+    },
+    {
+        "API Name":"x1e.8xlarge",
+        "Instance Memory":976.0,
+        "vCPUs":32,
+        "Linux Reserved cost":36021.12
+    },
+    {
+        "API Name":"x2iedn.8xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":32,
+        "Linux Reserved cost":35946.1344
+    },
+    {
+        "API Name":"x2iezn.8xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":32,
+        "Linux Reserved cost":35982.576
+    },
+    {
+        "API Name":"c4.8xlarge",
+        "Instance Memory":60.0,
+        "vCPUs":36,
+        "Linux Reserved cost":8830.08
+    },
+    {
+        "API Name":"c5.9xlarge",
+        "Instance Memory":72.0,
+        "vCPUs":36,
+        "Linux Reserved cost":8444.64
+    },
+    {
+        "API Name":"c5d.9xlarge",
+        "Instance Memory":72.0,
+        "vCPUs":36,
+        "Linux Reserved cost":9539.64
+    },
+    {
+        "API Name":"c5n.9xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":36,
+        "Linux Reserved cost":10731.0
+    },
+    {
+        "API Name":"d2.8xlarge",
+        "Instance Memory":244.0,
+        "vCPUs":36,
+        "Linux Reserved cost":28172.16
+    },
+    {
+        "API Name":"m4.10xlarge",
+        "Instance Memory":160.0,
+        "vCPUs":40,
+        "Linux Reserved cost":10853.64
+    },
+    {
+        "API Name":"c6g.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":9007.032
+    },
+    {
+        "API Name":"c7g.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":10044.216
+    },
+    {
+        "API Name":"c6gd.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":10172.112
+    },
+    {
+        "API Name":"c5a.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":10196.64
+    },
+    {
+        "API Name":"c6a.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":10639.1076
+    },
+    {
+        "API Name":"c8g.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11050.0392
+    },
+    {
+        "API Name":"c5.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11256.6
+    },
+    {
+        "API Name":"c5ad.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11388.0
+    },
+    {
+        "API Name":"c6gn.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11464.7376
+    },
+    {
+        "API Name":"c7i-flex.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11791.7484
+    },
+    {
+        "API Name":"c6i.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11821.2696
+    },
+    {
+        "API Name":"c7gd.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12019.596
+    },
+    {
+        "API Name":"c7i.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12412.3068
+    },
+    {
+        "API Name":"c5d.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12719.52
+    },
+    {
+        "API Name":"c6id.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":13355.496
+    },
+    {
+        "API Name":"c7a.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14274.5076
+    },
+    {
+        "API Name":"c6in.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":15019.9836
+    },
+    {
+        "API Name":"c7gn.12xlarge",
+        "Instance Memory":96.0,
+        "vCPUs":48,
+        "Linux Reserved cost":16530.12
+    },
+    {
+        "API Name":"m6g.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":10154.592
+    },
+    {
+        "API Name":"m7g.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11348.58
+    },
+    {
+        "API Name":"m5a.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11388.0
+    },
+    {
+        "API Name":"m6gd.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":11973.168
+    },
+    {
+        "API Name":"m6a.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12016.0044
+    },
+    {
+        "API Name":"m8g.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12483.2628
+    },
+    {
+        "API Name":"m5.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":12719.52
+    },
+    {
+        "API Name":"m7i-flex.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":13316.8644
+    },
+    {
+        "API Name":"m6i.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":13351.116
+    },
+    {
+        "API Name":"m5ad.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":13639.32
+    },
+    {
+        "API Name":"m7i.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14018.628
+    },
+    {
+        "API Name":"m7gd.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14143.896
+    },
+    {
+        "API Name":"m5d.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14970.84
+    },
+    {
+        "API Name":"m6id.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":15715.3524
+    },
+    {
+        "API Name":"m5n.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":15759.24
+    },
+    {
+        "API Name":"m7a.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":16121.466
+    },
+    {
+        "API Name":"m5dn.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":18010.56
+    },
+    {
+        "API Name":"m6in.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":18441.2016
+    },
+    {
+        "API Name":"m6idn.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21075.5964
+    },
+    {
+        "API Name":"g4dn.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21593.4
+    },
+    {
+        "API Name":"m5zn.metal",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21877.224
+    },
+    {
+        "API Name":"m5zn.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21877.224
+    },
+    {
+        "API Name":"g6.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":26241.8064
+    },
+    {
+        "API Name":"g5.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":31302.6336
+    },
+    {
+        "API Name":"d3en.12xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":48,
+        "Linux Reserved cost":34816.0944
+    },
+    {
+        "API Name":"r6g.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":13351.116
+    },
+    {
+        "API Name":"r7g.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14894.628
+    },
+    {
+        "API Name":"r5a.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":14970.84
+    },
+    {
+        "API Name":"r6gd.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":15258.168
+    },
+    {
+        "API Name":"r6a.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":15770.9784
+    },
+    {
+        "API Name":"r8g.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":16385.6676
+    },
+    {
+        "API Name":"r5.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":16687.8
+    },
+    {
+        "API Name":"r5ad.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":17353.56
+    },
+    {
+        "API Name":"r6i.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":17523.3288
+    },
+    {
+        "API Name":"r7gd.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":17979.9
+    },
+    {
+        "API Name":"r7i.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":18399.4164
+    },
+    {
+        "API Name":"r5d.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":19070.52
+    },
+    {
+        "API Name":"r5b.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":19735.2288
+    },
+    {
+        "API Name":"r5n.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":19736.28
+    },
+    {
+        "API Name":"r6id.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":19978.056
+    },
+    {
+        "API Name":"r7a.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21160.0428
+    },
+    {
+        "API Name":"r5dn.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":22119.0
+    },
+    {
+        "API Name":"r6in.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":23090.2212
+    },
+    {
+        "API Name":"i4i.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":23406.72
+    },
+    {
+        "API Name":"z1d.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":24633.12
+    },
+    {
+        "API Name":"z1d.metal",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":24633.12
+    },
+    {
+        "API Name":"r7iz.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":24635.9232
+    },
+    {
+        "API Name":"r6idn.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":25879.668
+    },
+    {
+        "API Name":"i3en.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":32359.44
+    },
+    {
+        "API Name":"g6e.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":57906.7536
+    },
+    {
+        "API Name":"i7ie.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":34915.84
+    },
+    {
+        "API Name":"i8g.12xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":48,
+        "Linux Reserved cost":23053.32
+    },
+    {
+        "API Name":"f2.12xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":48,
+        "Linux Reserved cost":22166.65
+    },
+    {
+        "API Name":"x2gd.12xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":48,
+        "Linux Reserved cost":21636.324
+    },
+    {
+        "API Name":"x8g.12xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":48,
+        "Linux Reserved cost":25315.8744
+    },
+    {
+        "API Name":"x2iezn.12xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":48,
+        "Linux Reserved cost":53973.864
+    },
+    {
+        "API Name":"x2iezn.metal",
+        "Instance Memory":1536.0,
+        "vCPUs":48,
+        "Linux Reserved cost":53973.864
+    },
+    {
+        "API Name":"hpc7g.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":11611.38
+    },
+    {
+        "API Name":"c6g.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":12009.084
+    },
+    {
+        "API Name":"c6g.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":12009.084
+    },
+    {
+        "API Name":"c7g.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13392.288
+    },
+    {
+        "API Name":"c7g.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13392.288
+    },
+    {
+        "API Name":"c6gd.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13563.108
+    },
+    {
+        "API Name":"c6gd.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13563.108
+    },
+    {
+        "API Name":"c5a.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13595.52
+    },
+    {
+        "API Name":"c6a.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":14185.506
+    },
+    {
+        "API Name":"c8g.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":14733.3564
+    },
+    {
+        "API Name":"g5g.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15143.412
+    },
+    {
+        "API Name":"g5g.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15143.412
+    },
+    {
+        "API Name":"c5ad.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15189.84
+    },
+    {
+        "API Name":"c6gn.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15286.3752
+    },
+    {
+        "API Name":"c7i-flex.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15722.2728
+    },
+    {
+        "API Name":"c6i.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15761.6928
+    },
+    {
+        "API Name":"c7gd.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16026.42
+    },
+    {
+        "API Name":"c7gd.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16026.42
+    },
+    {
+        "API Name":"c7i.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16549.7424
+    },
+    {
+        "API Name":"c6id.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17807.328
+    },
+    {
+        "API Name":"c7a.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19032.6768
+    },
+    {
+        "API Name":"c6in.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":20026.5864
+    },
+    {
+        "API Name":"c7gn.metal",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":22040.16
+    },
+    {
+        "API Name":"c7gn.16xlarge",
+        "Instance Memory":128.0,
+        "vCPUs":64,
+        "Linux Reserved cost":22040.16
+    },
+    {
+        "API Name":"m6g.metal",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13539.456
+    },
+    {
+        "API Name":"m6g.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":13539.456
+    },
+    {
+        "API Name":"m7g.metal",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15131.148
+    },
+    {
+        "API Name":"m7g.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15131.148
+    },
+    {
+        "API Name":"m5a.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15189.84
+    },
+    {
+        "API Name":"m6gd.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15965.1
+    },
+    {
+        "API Name":"m6gd.metal",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":15965.1
+    },
+    {
+        "API Name":"m6a.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16021.3392
+    },
+    {
+        "API Name":"m8g.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16644.3504
+    },
+    {
+        "API Name":"m5.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":16950.6
+    },
+    {
+        "API Name":"m4.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17365.824
+    },
+    {
+        "API Name":"m7i-flex.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17755.8192
+    },
+    {
+        "API Name":"m6i.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17801.4588
+    },
+    {
+        "API Name":"m5ad.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":18185.76
+    },
+    {
+        "API Name":"m7i.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":18691.4748
+    },
+    {
+        "API Name":"m7gd.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":18858.528
+    },
+    {
+        "API Name":"m7gd.metal",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":18858.528
+    },
+    {
+        "API Name":"g4ad.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19139.1984
+    },
+    {
+        "API Name":"g6.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19371.1632
+    },
+    {
+        "API Name":"m5d.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19955.28
+    },
+    {
+        "API Name":"m6id.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":20953.7448
+    },
+    {
+        "API Name":"m5n.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":21015.24
+    },
+    {
+        "API Name":"m7a.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":21495.2004
+    },
+    {
+        "API Name":"h1.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":22294.2
+    },
+    {
+        "API Name":"g5.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":22605.0048
+    },
+    {
+        "API Name":"m5dn.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":24019.92
+    },
+    {
+        "API Name":"g4dn.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":24019.92
+    },
+    {
+        "API Name":"m6in.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":24588.2688
+    },
+    {
+        "API Name":"m6idn.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":28100.8536
+    },
+    {
+        "API Name":"im4gn.16xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":64,
+        "Linux Reserved cost":32700.7296
+    },
+    {
+        "API Name":"r4.16xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":64,
+        "Linux Reserved cost":23546.88
+    },
+    {
+        "API Name":"i3.16xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":64,
+        "Linux Reserved cost":30020.52
+    },
+    {
+        "API Name":"p3.16xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":64,
+        "Linux Reserved cost":146362.08
+    },
+    {
+        "API Name":"g3.16xlarge",
+        "Instance Memory":488.0,
+        "vCPUs":64,
+        "Linux Reserved cost":25525.24
+    },
+    {
+        "API Name":"r6g.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17801.196
+    },
+    {
+        "API Name":"r6g.metal",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":17801.196
+    },
+    {
+        "API Name":"r7g.metal",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19859.796
+    },
+    {
+        "API Name":"r7g.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19859.796
+    },
+    {
+        "API Name":"r5a.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":19955.28
+    },
+    {
+        "API Name":"r6gd.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":20344.224
+    },
+    {
+        "API Name":"r6gd.metal",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":20344.224
+    },
+    {
+        "API Name":"r6a.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":21027.942
+    },
+    {
+        "API Name":"r8g.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":21847.5276
+    },
+    {
+        "API Name":"r5.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":22250.4
+    },
+    {
+        "API Name":"r5ad.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":23135.16
+    },
+    {
+        "API Name":"r6i.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":23364.4092
+    },
+    {
+        "API Name":"r7gd.metal",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":23973.492
+    },
+    {
+        "API Name":"r7gd.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":23973.492
+    },
+    {
+        "API Name":"r7i.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":24532.6428
+    },
+    {
+        "API Name":"r5d.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":25430.28
+    },
+    {
+        "API Name":"r5b.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":26313.6384
+    },
+    {
+        "API Name":"r5n.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":26315.04
+    },
+    {
+        "API Name":"r6id.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":26637.408
+    },
+    {
+        "API Name":"i4g.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":28094.3712
+    },
+    {
+        "API Name":"r7a.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":28213.4196
+    },
+    {
+        "API Name":"r5dn.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":29494.92
+    },
+    {
+        "API Name":"r6in.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":30786.9324
+    },
+    {
+        "API Name":"i4i.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":31211.88
+    },
+    {
+        "API Name":"r7iz.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":32847.8976
+    },
+    {
+        "API Name":"r7iz.metal-16xl",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":32847.8976
+    },
+    {
+        "API Name":"r6idn.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":34506.1656
+    },
+    {
+        "API Name":"g6e.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":41816.9988
+    },
+    {
+        "API Name":"i8g.16xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":64,
+        "Linux Reserved cost":30737.76
+    },
+    {
+        "API Name":"p2.16xlarge",
+        "Instance Memory":732.0,
+        "vCPUs":64,
+        "Linux Reserved cost":80606.02
+    },
+    {
+        "API Name":"x1.16xlarge",
+        "Instance Memory":976.0,
+        "vCPUs":64,
+        "Linux Reserved cost":36003.6
+    },
+    {
+        "API Name":"f1.16xlarge",
+        "Instance Memory":976.0,
+        "vCPUs":64,
+        "Linux Reserved cost":78183.0
+    },
+    {
+        "API Name":"x2gd.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":64,
+        "Linux Reserved cost":28848.432
+    },
+    {
+        "API Name":"x2gd.16xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":64,
+        "Linux Reserved cost":28848.432
+    },
+    {
+        "API Name":"x8g.16xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":64,
+        "Linux Reserved cost":33754.5576
+    },
+    {
+        "API Name":"x2idn.16xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":64,
+        "Linux Reserved cost":35946.1344
+    },
+    {
+        "API Name":"x1e.16xlarge",
+        "Instance Memory":1952.0,
+        "vCPUs":64,
+        "Linux Reserved cost":72033.48
+    },
+    {
+        "API Name":"x2iedn.16xlarge",
+        "Instance Memory":2048.0,
+        "vCPUs":64,
+        "Linux Reserved cost":71892.1812
+    },
+    {
+        "API Name":"c5.18xlarge",
+        "Instance Memory":144.0,
+        "vCPUs":72,
+        "Linux Reserved cost":16889.28
+    },
+    {
+        "API Name":"c5d.18xlarge",
+        "Instance Memory":144.0,
+        "vCPUs":72,
+        "Linux Reserved cost":19070.52
+    },
+    {
+        "API Name":"c5n.18xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":72,
+        "Linux Reserved cost":21453.24
+    },
+    {
+        "API Name":"c5n.metal",
+        "Instance Memory":192.0,
+        "vCPUs":72,
+        "Linux Reserved cost":21453.24
+    },
+    {
+        "API Name":"i3.metal",
+        "Instance Memory":512.0,
+        "vCPUs":72,
+        "Linux Reserved cost":30020.52
+    },
+    {
+        "API Name":"i7ie.18xlarge",
+        "Instance Memory":576.0,
+        "vCPUs":72,
+        "Linux Reserved cost":52373.76
+    },
+    {
+        "API Name":"c5a.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":20393.28
+    },
+    {
+        "API Name":"c6a.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":21278.3028
+    },
+    {
+        "API Name":"c8g.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22100.0784
+    },
+    {
+        "API Name":"c8g.metal-24xl",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22100.0784
+    },
+    {
+        "API Name":"c5.metal",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22513.2
+    },
+    {
+        "API Name":"c5.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22513.2
+    },
+    {
+        "API Name":"c5ad.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22784.76
+    },
+    {
+        "API Name":"c6i.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":23642.5392
+    },
+    {
+        "API Name":"c7i.metal-24xl",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":24824.7012
+    },
+    {
+        "API Name":"c7i.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":24824.7012
+    },
+    {
+        "API Name":"c5d.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":25430.28
+    },
+    {
+        "API Name":"c5d.metal",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":25430.28
+    },
+    {
+        "API Name":"inf1.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":26052.24
+    },
+    {
+        "API Name":"c6id.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":26710.992
+    },
+    {
+        "API Name":"c7a.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":28549.1028
+    },
+    {
+        "API Name":"vt1.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":28697.76
+    },
+    {
+        "API Name":"c6in.24xlarge",
+        "Instance Memory":192.0,
+        "vCPUs":96,
+        "Linux Reserved cost":30039.9672
+    },
+    {
+        "API Name":"m5a.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":22784.76
+    },
+    {
+        "API Name":"m6a.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":24031.9212
+    },
+    {
+        "API Name":"m8g.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":24966.5256
+    },
+    {
+        "API Name":"m8g.metal-24xl",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":24966.5256
+    },
+    {
+        "API Name":"m5.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":25430.28
+    },
+    {
+        "API Name":"m5.metal",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":25430.28
+    },
+    {
+        "API Name":"m6i.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":26702.1444
+    },
+    {
+        "API Name":"m5ad.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":27287.4
+    },
+    {
+        "API Name":"m7i.metal-24xl",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":28037.256
+    },
+    {
+        "API Name":"m7i.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":28037.256
+    },
+    {
+        "API Name":"m5d.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":29932.92
+    },
+    {
+        "API Name":"m5d.metal",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":29932.92
+    },
+    {
+        "API Name":"m6id.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":31430.7048
+    },
+    {
+        "API Name":"m5n.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":31527.24
+    },
+    {
+        "API Name":"m5n.metal",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":31527.24
+    },
+    {
+        "API Name":"m7a.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":32242.8444
+    },
+    {
+        "API Name":"inf2.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":35820.516
+    },
+    {
+        "API Name":"m5dn.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":36029.88
+    },
+    {
+        "API Name":"m5dn.metal",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":36029.88
+    },
+    {
+        "API Name":"m6in.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":36882.4032
+    },
+    {
+        "API Name":"g6.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":38067.1056
+    },
+    {
+        "API Name":"m6idn.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":42151.2804
+    },
+    {
+        "API Name":"g4dn.metal",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":43178.04
+    },
+    {
+        "API Name":"g5.24xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":96,
+        "Linux Reserved cost":44945.1072
+    },
+    {
+        "API Name":"r5a.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":29932.92
+    },
+    {
+        "API Name":"r6a.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":31541.9568
+    },
+    {
+        "API Name":"r8g.metal-24xl",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":32771.3352
+    },
+    {
+        "API Name":"r8g.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":32771.3352
+    },
+    {
+        "API Name":"r5.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":33375.6
+    },
+    {
+        "API Name":"r5.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":33375.6
+    },
+    {
+        "API Name":"r5ad.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":34698.36
+    },
+    {
+        "API Name":"r6i.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":35046.57
+    },
+    {
+        "API Name":"r7i.metal-24xl",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":36798.9204
+    },
+    {
+        "API Name":"r7i.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":36798.9204
+    },
+    {
+        "API Name":"r5d.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":38149.8
+    },
+    {
+        "API Name":"r5d.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":38149.8
+    },
+    {
+        "API Name":"r5b.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":39470.4576
+    },
+    {
+        "API Name":"r5b.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":39470.4576
+    },
+    {
+        "API Name":"r5n.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":39472.56
+    },
+    {
+        "API Name":"r5n.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":39472.56
+    },
+    {
+        "API Name":"r6id.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":39956.112
+    },
+    {
+        "API Name":"r7a.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":42320.1732
+    },
+    {
+        "API Name":"r5dn.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":44238.0
+    },
+    {
+        "API Name":"r5dn.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":44238.0
+    },
+    {
+        "API Name":"r6in.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":46180.4424
+    },
+    {
+        "API Name":"i4i.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":46821.4992
+    },
+    {
+        "API Name":"r6idn.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":51759.2484
+    },
+    {
+        "API Name":"i3en.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":64718.88
+    },
+    {
+        "API Name":"i3en.metal",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":64718.88
+    },
+    {
+        "API Name":"dl1.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":72346.212
+    },
+    {
+        "API Name":"g6e.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":83143.9632
+    },
+    {
+        "API Name":"p3dn.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":168323.4
+    },
+    {
+        "API Name":"i7ie.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":69831.68
+    },
+    {
+        "API Name":"i8g.24xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":46106.64
+    },
+    {
+        "API Name":"i8g.metal-24xl",
+        "Instance Memory":768.0,
+        "vCPUs":96,
+        "Linux Reserved cost":46106.64
+    },
+    {
+        "API Name":"p4d.24xlarge",
+        "Instance Memory":1152.0,
+        "vCPUs":96,
+        "Linux Reserved cost":176737.3625
+    },
+    {
+        "API Name":"p4de.24xlarge",
+        "Instance Memory":1152.0,
+        "vCPUs":96,
+        "Linux Reserved cost":220921.7075
+    },
+    {
+        "API Name":"x8g.metal-24xl",
+        "Instance Memory":1536.0,
+        "vCPUs":96,
+        "Linux Reserved cost":50631.8364
+    },
+    {
+        "API Name":"x8g.24xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":96,
+        "Linux Reserved cost":50631.8364
+    },
+    {
+        "API Name":"x2idn.24xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":96,
+        "Linux Reserved cost":53919.114
+    },
+    {
+        "API Name":"x2iedn.24xlarge",
+        "Instance Memory":3072.0,
+        "vCPUs":96,
+        "Linux Reserved cost":107838.3156
+    },
+    {
+        "API Name":"c6a.32xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":28371.012
+    },
+    {
+        "API Name":"c6i.metal",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":31523.3856
+    },
+    {
+        "API Name":"c6i.32xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":31523.3856
+    },
+    {
+        "API Name":"c6id.32xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":35614.656
+    },
+    {
+        "API Name":"c6id.metal",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":35614.656
+    },
+    {
+        "API Name":"c7a.32xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":38065.4412
+    },
+    {
+        "API Name":"c6in.metal",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":40053.2604
+    },
+    {
+        "API Name":"c6in.32xlarge",
+        "Instance Memory":256.0,
+        "vCPUs":128,
+        "Linux Reserved cost":40053.2604
+    },
+    {
+        "API Name":"m6a.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":32042.5908
+    },
+    {
+        "API Name":"m6i.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":35602.9176
+    },
+    {
+        "API Name":"m6i.metal",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":35602.9176
+    },
+    {
+        "API Name":"m6id.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":41907.5772
+    },
+    {
+        "API Name":"m6id.metal",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":41907.5772
+    },
+    {
+        "API Name":"m7a.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":42990.4884
+    },
+    {
+        "API Name":"m6in.metal",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":49176.45
+    },
+    {
+        "API Name":"m6in.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":49176.45
+    },
+    {
+        "API Name":"m6idn.metal",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":56201.7072
+    },
+    {
+        "API Name":"m6idn.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":56201.7072
+    },
+    {
+        "API Name":"trn1.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":115885.602
+    },
+    {
+        "API Name":"trn1n.32xlarge",
+        "Instance Memory":512.0,
+        "vCPUs":128,
+        "Linux Reserved cost":133564.8588
+    },
+    {
+        "API Name":"r6a.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":42055.884
+    },
+    {
+        "API Name":"r6i.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":46728.8184
+    },
+    {
+        "API Name":"r6i.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":46728.8184
+    },
+    {
+        "API Name":"r6id.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":53274.816
+    },
+    {
+        "API Name":"r6id.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":53274.816
+    },
+    {
+        "API Name":"r7a.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":56426.8392
+    },
+    {
+        "API Name":"r6in.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":61573.9524
+    },
+    {
+        "API Name":"r6in.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":61573.9524
+    },
+    {
+        "API Name":"i4i.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":62428.6656
+    },
+    {
+        "API Name":"i4i.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":62432.52
+    },
+    {
+        "API Name":"r7iz.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":65695.7952
+    },
+    {
+        "API Name":"r7iz.metal-32xl",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":65695.7952
+    },
+    {
+        "API Name":"r6idn.metal",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":69012.3312
+    },
+    {
+        "API Name":"r6idn.32xlarge",
+        "Instance Memory":1024.0,
+        "vCPUs":128,
+        "Linux Reserved cost":69012.3312
+    },
+    {
+        "API Name":"x1.32xlarge",
+        "Instance Memory":1952.0,
+        "vCPUs":128,
+        "Linux Reserved cost":71998.44
+    },
+    {
+        "API Name":"x2idn.metal",
+        "Instance Memory":2048.0,
+        "vCPUs":128,
+        "Linux Reserved cost":71892.1812
+    },
+    {
+        "API Name":"x2idn.32xlarge",
+        "Instance Memory":2048.0,
+        "vCPUs":128,
+        "Linux Reserved cost":71892.1812
+    },
+    {
+        "API Name":"x1e.32xlarge",
+        "Instance Memory":3904.0,
+        "vCPUs":128,
+        "Linux Reserved cost":144066.96
+    },
+    {
+        "API Name":"x2iedn.32xlarge",
+        "Instance Memory":4096.0,
+        "vCPUs":128,
+        "Linux Reserved cost":143784.3624
+    },
+    {
+        "API Name":"x2iedn.metal",
+        "Instance Memory":4096.0,
+        "vCPUs":128,
+        "Linux Reserved cost":143784.3624
+    },
+    {
+        "API Name":"c6a.48xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":42556.6056
+    },
+    {
+        "API Name":"c6a.metal",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":42556.6056
+    },
+    {
+        "API Name":"c8g.metal-48xl",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":44200.0692
+    },
+    {
+        "API Name":"c8g.48xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":44200.0692
+    },
+    {
+        "API Name":"c7i.48xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":49649.3148
+    },
+    {
+        "API Name":"c7i.metal-48xl",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":49649.3148
+    },
+    {
+        "API Name":"c7a.metal-48xl",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":57098.118
+    },
+    {
+        "API Name":"c7a.48xlarge",
+        "Instance Memory":384.0,
+        "vCPUs":192,
+        "Linux Reserved cost":57098.118
+    },
+    {
+        "API Name":"m6a.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":48063.93
+    },
+    {
+        "API Name":"m6a.metal",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":48063.93
+    },
+    {
+        "API Name":"m8g.metal-48xl",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":49933.0512
+    },
+    {
+        "API Name":"m8g.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":49933.0512
+    },
+    {
+        "API Name":"m7i.metal-48xl",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":56074.512
+    },
+    {
+        "API Name":"m7i.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":56074.512
+    },
+    {
+        "API Name":"m7a.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":64485.6888
+    },
+    {
+        "API Name":"m7a.metal-48xl",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":64485.6888
+    },
+    {
+        "API Name":"inf2.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":71641.032
+    },
+    {
+        "API Name":"g6.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":76134.1236
+    },
+    {
+        "API Name":"g5.48xlarge",
+        "Instance Memory":768.0,
+        "vCPUs":192,
+        "Linux Reserved cost":89890.2144
+    },
+    {
+        "API Name":"r6a.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":63083.826
+    },
+    {
+        "API Name":"r6a.metal",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":63083.826
+    },
+    {
+        "API Name":"r8g.metal-48xl",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":65542.6704
+    },
+    {
+        "API Name":"r8g.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":65542.6704
+    },
+    {
+        "API Name":"r7i.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":73597.8408
+    },
+    {
+        "API Name":"r7i.metal-48xl",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":73597.8408
+    },
+    {
+        "API Name":"r7a.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":84640.2588
+    },
+    {
+        "API Name":"r7a.metal-48xl",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":84640.2588
+    },
+    {
+        "API Name":"g6e.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":166287.9264
+    },
+    {
+        "API Name":"i7ie.48xlarge",
+        "Instance Memory":1536.0,
+        "vCPUs":192,
+        "Linux Reserved cost":139663.4
+    },
+    {
+        "API Name":"p5.48xlarge",
+        "Instance Memory":2048.0,
+        "vCPUs":192,
+        "Linux Reserved cost":550360.0
+    },
+    {
+        "API Name":"f2.48xlarge",
+        "Instance Memory":2048.0,
+        "vCPUs":192,
+        "Linux Reserved cost":88666.62
+    },
+    {
+        "API Name":"x8g.48xlarge",
+        "Instance Memory":3072.0,
+        "vCPUs":192,
+        "Linux Reserved cost":101263.5852
+    },
+    {
+        "API Name":"x8g.metal-48xl",
+        "Instance Memory":3072.0,
+        "vCPUs":192,
+        "Linux Reserved cost":101263.5852
+    },
+    {
+        "API Name":"u-3tb1.56xlarge",
+        "Instance Memory":3072.0,
+        "vCPUs":224,
+        "Linux Reserved cost":147373.7724
+    },
+    {
+        "API Name":"u-6tb1.56xlarge",
+        "Instance Memory":6144.0,
+        "vCPUs":224,
+        "Linux Reserved cost":250502.5368
+    },
+    {
+        "API Name":"u-6tb1.112xlarge",
+        "Instance Memory":6144.0,
+        "vCPUs":448,
+        "Linux Reserved cost":294747.5448
+    },
+    {
+        "API Name":"u7i-6tb.112xlarge",
+        "Instance Memory":6144.0,
+        "vCPUs":448,
+        "Linux Reserved cost":351475.8
+    },
+    {
+        "API Name":"u7i-8tb.112xlarge",
+        "Instance Memory":8192.0,
+        "vCPUs":448,
+        "Linux Reserved cost":468634.4
+    },
+    {
+        "API Name":"u-9tb1.112xlarge",
+        "Instance Memory":9216.0,
+        "vCPUs":448,
+        "Linux Reserved cost":442196.6532
+    },
+    {
+        "API Name":"u-12tb1.112xlarge",
+        "Instance Memory":12288.0,
+        "vCPUs":448,
+        "Linux Reserved cost":589595.4791999999
+    },
+    {
+        "API Name":"u-18tb1.112xlarge",
+        "Instance Memory":18432.0,
+        "vCPUs":448,
+        "Linux Reserved cost":884242.5468
+    },
+    {
+        "API Name":"u-24tb1.112xlarge",
+        "Instance Memory":24576.0,
+        "vCPUs":448,
+        "Linux Reserved cost":1178990.0915999999
+    },
+    {
+        "API Name":"u7i-12tb.224xlarge",
+        "Instance Memory":12288.0,
+        "vCPUs":896,
+        "Linux Reserved cost":825433.6884
+    },
+    {
+        "API Name":"u7in-16tb.224xlarge",
+        "Instance Memory":16384.0,
+        "vCPUs":896,
+        "Linux Reserved cost":1100390.7287999999
+    },
+    {
+        "API Name":"u7in-24tb.224xlarge",
+        "Instance Memory":24576.0,
+        "vCPUs":896,
+        "Linux Reserved cost":1650586.0932
+    },
+    {
+        "API Name":"u7in-32tb.224xlarge",
+        "Instance Memory":32768.0,
+        "vCPUs":896,
+        "Linux Reserved cost":2200781.4575999998
+    }
+];
 
-
-    ];
-
-    let filteredInstances = [];
+let filteredInstances = [];
 let currentIndex = 0;
 
 function findInstance() {
@@ -843,9 +5314,9 @@ function findInstance() {
         return;
     }
 
-    // Filter only instances that are >= the input values
-    filteredInstances = cpuRamData.filter(instance => 
-        instance["vCPU"] >= vcpuInput && instance["Memory (GiB)"] >= memoryInput
+    // Filter instances that meet or exceed the input vCPU and Memory
+    filteredInstances = cpuRamData.filter(instance =>
+        instance["vCPUs"] >= vcpuInput && instance["Instance Memory"] >= memoryInput
     );
 
     if (filteredInstances.length === 0) {
@@ -853,21 +5324,10 @@ function findInstance() {
         return;
     }
 
-    // Sort instances based on Euclidean distance (KNN approach)
-    filteredInstances.sort((a, b) => {
-        const distanceA = Math.sqrt(
-            Math.pow(a["vCPU"] - vcpuInput, 2) + 
-            Math.pow(a["Memory (GiB)"] - memoryInput, 2)
-        );
+    // Sort instances by the lowest cost
+    filteredInstances.sort((a, b) => a["Linux Reserved cost"] - b["Linux Reserved cost"]);
 
-        const distanceB = Math.sqrt(
-            Math.pow(b["vCPU"] - vcpuInput, 2) + 
-            Math.pow(b["Memory (GiB)"] - memoryInput, 2)
-        );
-
-        return distanceA - distanceB;
-    });
-
+    // Reset index and show the first instance
     currentIndex = 0;
     displayInstance(currentIndex);
 }
@@ -881,8 +5341,7 @@ function displayInstance(index) {
     const div = document.createElement("div");
     div.className = "instance";
     div.innerHTML = `
-        <strong>${instance["Instance size"]}</strong> 
-        (vCPU: ${instance["vCPU"]}, Memory: ${instance["Memory (GiB)"]})
+        <p><strong>${instance["API Name"]}</strong> (vCPUs:${instance["vCPUs"]} , Memory:${instance["Instance Memory"]} GiB)</p>
     `;
     resultsDiv.appendChild(div);
 
@@ -897,7 +5356,7 @@ function displayInstance(index) {
         const nextButton = document.createElement("button");
         nextButton.id = "nextBtn";
         nextButton.innerHTML = "Next Nearest Instance";
-        nextButton.onclick = function() {
+        nextButton.onclick = function () {
             currentIndex++;
             displayInstance(currentIndex);
         };
@@ -909,6 +5368,7 @@ function displayInstance(index) {
         resultsDiv.appendChild(noMoreButton);
     }
 }
+
 
 </script>
 </html>
