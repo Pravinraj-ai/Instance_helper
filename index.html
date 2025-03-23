@@ -6,7 +6,6 @@
     <title>Instance Finder</title>
     <style>
         body {
-            
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: #ffffff;
@@ -23,25 +22,72 @@
         }
         .input-box {
             margin-bottom: 15px;
+            position: relative;
         }
         
         label {
             display: block;
             margin-bottom: 5px;
         }
-        select{
-            /*appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;*/
+        .dropdown-btn {
             width: 93%;
             padding: 10px;
-            padding-left: 10px;
-            padding-left: 10px;
+            text-align: left;
             font-size: 15px;
             border: none;
             border-radius: 5px;
-            background-color:  #2a2a2a; /* Adjust for dark mode */
+            background-color: #2a2a2a;
             color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .dropdown-btn:after {
+            content: "▼";
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2a2a2a;
+            min-width: 93%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            margin-top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: left;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+        .checkbox-option {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-option:hover {
+            background-color: #333;
+        }
+        .checkbox-option input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .checkbox-option label {
+            display: inline;
+            margin-bottom: 0;
+        }
+        .select-all {
+            padding: 10px 15px;
+            border-bottom: 1px solid #444;
+            color: #007bff;
+            cursor: pointer;
         }
         input {
             width: 90%;
@@ -89,21 +135,50 @@
         <h1>Find the Nearest Instance</h1>
 
         <div class="input-box">
-            <label for="series">Instance Series:</label>
-            <select id="series">
-                <option value="all" selected>All Series</option>
-                <option value="t3."> t3</option>
-                <option value="t3a."> t3a</option>
-                <option value="m5."> m5</option>
-                <option value="m5a."> m5a</option>
-
-                <option value="r5."> r5</option>
-                <option value="r5a."> r5a</option>
-                <option value="c5."> c5</option>
-                <option value="c5a."> c5a</option>
-            </select>
+            <label for="series-dropdown">Instance Series:</label>
+            <button id="dropdown-btn" class="dropdown-btn">All Series</button>
+            <div id="series-dropdown" class="dropdown-content">
+                <div class="select-all" onclick="toggleAllSeries()">
+                    <span id="selectAllText">Select All</span>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-all" value="all" checked>
+                    <label for="series-all">All Series</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-t3" value="t3.">
+                    <label for="series-t3">t3</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-t3a" value="t3a.">
+                    <label for="series-t3a">t3a</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-m5" value="m5.">
+                    <label for="series-m5">m5</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-m5a" value="m5a.">
+                    <label for="series-m5a">m5a</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-r5" value="r5.">
+                    <label for="series-r5">r5</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-r5a" value="r5a.">
+                    <label for="series-r5a">r5a</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-c5" value="c5.">
+                    <label for="series-c5">c5</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="series-c5a" value="c5a.">
+                    <label for="series-c5a">c5a</label>
+                </div>
+            </div>
         </div>
-        
         
         <div class="input-box">
             <label for="vcpu">vCPU:</label>
@@ -5336,11 +5411,135 @@ const cpuRamData = [
 
 
 
+
 let filteredInstances = [];
 let currentIndex = 0;
 
+// Toggle dropdown
+document.getElementById("dropdown-btn").addEventListener("click", function() {
+    document.getElementById("series-dropdown").classList.toggle("show");
+});
+
+// Close dropdown when clicking outside
+window.addEventListener("click", function(event) {
+    if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-content')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            if (dropdowns[i].classList.contains('show')) {
+                dropdowns[i].classList.remove('show');
+            }
+        }
+    }
+});
+
+// Add event listener to "All Series" checkbox
+document.getElementById("series-all").addEventListener("change", function() {
+    const isChecked = this.checked;
+    const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.id !== "series-all") {
+            checkbox.checked = false;
+            checkbox.disabled = isChecked;
+        }
+    });
+    
+    updateDropdownButtonText();
+    updateSelectAllText();
+});
+
+// Add event listeners to other checkboxes
+const seriesCheckboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all)');
+seriesCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", function() {
+        const allCheckbox = document.getElementById("series-all");
+        if (this.checked) {
+            allCheckbox.checked = false;
+        }
+        
+        // If no other checkbox is checked, re-check "All Series"
+        const anyChecked = Array.from(seriesCheckboxes).some(cb => cb.checked);
+        if (!anyChecked) {
+            allCheckbox.checked = true;
+            seriesCheckboxes.forEach(cb => {
+                cb.disabled = true;
+            });
+        }
+        
+        updateDropdownButtonText();
+        updateSelectAllText();
+    });
+});
+
+function toggleAllSeries() {
+    const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all)');
+    const allCheckbox = document.getElementById("series-all");
+    
+    // If "All Series" is checked, we want to uncheck it and check all others
+    if (allCheckbox.checked) {
+        allCheckbox.checked = false;
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = true;
+            checkbox.disabled = false;
+        });
+    } 
+    // If at least one individual series is checked, select "All Series" only
+    else {
+        allCheckbox.checked = true;
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = false;
+            checkbox.disabled = true;
+        });
+    }
+    
+    updateDropdownButtonText();
+    updateSelectAllText();
+}
+
+function updateSelectAllText() {
+    const allCheckbox = document.getElementById("series-all");
+    const selectAllTextElement = document.getElementById("selectAllText");
+    
+    if (allCheckbox.checked) {
+        selectAllTextElement.textContent = "Select Individual Series";
+    } else {
+        selectAllTextElement.textContent = "Select All Series";
+    }
+}
+
+function updateDropdownButtonText() {
+    const allCheckbox = document.getElementById("series-all");
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    
+    if (allCheckbox.checked) {
+        dropdownBtn.textContent = "All Series";
+        return;
+    }
+    
+    const selectedSeries = getSelectedSeries();
+    if (selectedSeries.length === 0) {
+        dropdownBtn.textContent = "No Series Selected";
+    } else if (selectedSeries.length === 1) {
+        dropdownBtn.textContent = selectedSeries[0].replace(".", "");
+    } else if (selectedSeries.length <= 3) {
+        dropdownBtn.textContent = selectedSeries.map(s => s.replace(".", "")).join(", ");
+    } else {
+        dropdownBtn.textContent = `${selectedSeries.length} Series Selected`;
+    }
+}
+
+function getSelectedSeries() {
+    const allCheckbox = document.getElementById("series-all");
+    if (allCheckbox.checked) {
+        return ["all"];
+    }
+    
+    const seriesCheckboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all):checked');
+    return Array.from(seriesCheckboxes).map(checkbox => checkbox.value);
+}
+
 function findInstance() {
-    const seriesInput = document.getElementById("series").value;
+    const selectedSeries = getSelectedSeries();
     const vcpuInput = parseFloat(document.getElementById("vcpu").value);
     const memoryInput = parseFloat(document.getElementById("memory").value);
 
@@ -5349,11 +5548,26 @@ function findInstance() {
         return;
     }
 
-    filteredInstances = cpuRamData.filter(instance =>
-        instance["vCPUs"] >= vcpuInput &&
-        instance["Instance Memory"] >= memoryInput &&
-        (seriesInput === "all" || instance["API Name"].startsWith(seriesInput))
-    );
+    filteredInstances = cpuRamData.filter(instance => {
+        // Check vCPU and memory requirements
+        const meetsRequirements = 
+            instance["vCPUs"] >= vcpuInput &&
+            instance["Instance Memory"] >= memoryInput;
+            
+        // Check series preference
+        let meetsSeriesPreference = false;
+        
+        if (selectedSeries.includes("all")) {
+            meetsSeriesPreference = true;
+        } else {
+            // Check if the instance API name starts with any of the selected series
+            meetsSeriesPreference = selectedSeries.some(series => 
+                instance["API Name"].startsWith(series)
+            );
+        }
+        
+        return meetsRequirements && meetsSeriesPreference;
+    });
 
     if (filteredInstances.length === 0) {
         document.getElementById("results").innerHTML = "<p>No matching instance found.</p>";
@@ -5363,6 +5577,9 @@ function findInstance() {
     filteredInstances.sort((a, b) => a["Linux Reserved cost"] - b["Linux Reserved cost"]);
     currentIndex = 0;
     displayInstance(currentIndex);
+    
+    // Close dropdown if open
+    document.getElementById("series-dropdown").classList.remove("show");
 }
 
 function displayInstance(index) {
@@ -5399,6 +5616,16 @@ function displayInstance(index) {
         noMoreButton.disabled = true;
         resultsDiv.appendChild(noMoreButton);
     }
+}
+
+// Initialize the UI state
+updateDropdownButtonText();
+updateSelectAllText();
+const allCheckbox = document.getElementById("series-all");
+if (allCheckbox.checked) {
+    document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all)').forEach(checkbox => {
+        checkbox.disabled = true;
+    });
 }
 </script>
 </html>
