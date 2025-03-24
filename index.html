@@ -5550,6 +5550,7 @@ function findInstance() {
 
     filteredInstances = cpuRamData.filter(instance => {
         // Check vCPU and memory requirements
+        // Now we're looking for instances with specs GREATER THAN OR EQUAL to user input
         const meetsRequirements = 
             instance["vCPUs"] >= vcpuInput &&
             instance["Instance Memory"] >= memoryInput;
@@ -5574,7 +5575,9 @@ function findInstance() {
         return;
     }
 
+    // Sort by cost (lowest first)
     filteredInstances.sort((a, b) => a["Linux Reserved cost"] - b["Linux Reserved cost"]);
+    
     currentIndex = 0;
     displayInstance(currentIndex);
     
