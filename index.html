@@ -205,12 +205,9 @@ let currentIndex = 0;
 fetch('instance_data.json')
   .then(response => response.json())
   .then(data => {
-    cpuRamData = data;  // now your JSON data is assigned just like before
+    cpuRamData = data; 
 
     console.log("Loaded JSON:", cpuRamData);
-
-    // You can now use cpuRamData here or call your functions
-    setupDropdown(); // Example function
   })
   .catch(error => {
     console.error('Error loading instance_data.json:', error);
