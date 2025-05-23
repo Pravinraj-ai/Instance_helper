@@ -272,14 +272,8 @@ let currentIndex = 0;
 fetch('instance_data.json')
   .then(response => response.json())
   .then(data => {
-<<<<<<< HEAD
     cpuRamData = data;  
 
-=======
-    cpuRamData = data; 
-
-    console.log("Loaded JSON:", cpuRamData);
->>>>>>> ab740f564d4ecd339c3aa956298b1674cfb5b439
   })
   .catch(error => {
     console.error('Error loading instance_data.json:', error);
