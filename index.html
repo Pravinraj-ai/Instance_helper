@@ -25,12 +25,27 @@
             position: relative;
         }
         
+        .dropdown-row {
+            justify-content: center;
+            width: 95.5%;
+            left:2%;
+            display: flex;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .dropdown-container {
+            flex: 1;
+            position: relative;
+            padding: 5px;
+        }
+        
         label {
             display: block;
             margin-bottom: 5px;
         }
         .dropdown-btn {
-            width: 93%;
+            width: 100%; 
             padding: 10px;
             text-align: left;
             font-size: 15px;
@@ -53,13 +68,12 @@
             display: none;
             position: absolute;
             background-color: #2a2a2a;
-            min-width: 93%;
+            width: 100%; 
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 5px;
             margin-top: 2px;
-            left: 50%;
-            transform: translateX(-50%);
+            transform: none;
             text-align: left;
             max-height: 250px;
             overflow-y: auto;
@@ -89,6 +103,19 @@
             color: #007bff;
             cursor: pointer;
         }
+        
+        /* NEW: Region option styles */
+        .region-option {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .region-option:hover {
+            background-color: #333;
+        }
+        .region-option.selected {
+            background-color: #007bff;
+        }
+        
         input {
             width: 90%;
             padding: 10px;
@@ -134,48 +161,87 @@
     <div class="container">
         <h1>Find the Nearest Instance</h1>
 
-        <div class="input-box">
-            <label for="series-dropdown">Instance Series:</label>
-            <button id="dropdown-btn" class="dropdown-btn">All Series</button>
-            <div id="series-dropdown" class="dropdown-content">
-                <div class="select-all" onclick="toggleAllSeries()">
-                    <span id="selectAllText">Select All</span>
+
+
+
+        <div class="dropdown-row">
+            <div class="dropdown-container">
+                <label for="region-dropdown">Region:</label>
+                <button id="region-dropdown-btn" class="dropdown-btn">us-east-1</button>
+                <div id="region-dropdown" class="dropdown-content">
+                    <div class="region-option selected" data-region="us-east-1">us-east-1</div>
+                    <div class="region-option" data-region="us-east-2">us-east-2</div>
+                    <div class="region-option" data-region="us-west-1">us-west-1</div>
+                    <div class="region-option" data-region="us-west-2">us-west-2</div>
+                    <div class="region-option" data-region="eu-central-1">eu-central-1</div>
+                    <div class="region-option" data-region="eu-central-1">eu-central-2</div>
+                    <div class="region-option" data-region="eu-south-2">eu-north-1</div>
+                    <div class="region-option" data-region="eu-south-1">eu-south-1</div>
+                    <div class="region-option" data-region="eu-south-2">eu-south-2</div>
+                    <div class="region-option" data-region="eu-west-1">eu-west-1</div>
+                    <div class="region-option" data-region="eu-west-2">eu-west-2</div>
+                    <div class="region-option" data-region="eu-west-3">eu-west-3</div>
+                    <div class="region-option" data-region="ap-east-1">ap-east-1</div>
+                    <div class="region-option" data-region="ap-northeast-1">ap-northeast-1</div>
+                    <div class="region-option" data-region="ap-northeast-2">ap-northeast-2</div>
+                    <div class="region-option" data-region="ap-northeast-3">ap-northeast-3</div>
+                    <div class="region-option" data-region="ap-south-1">ap-south-1</div>
+                    <div class="region-option" data-region="ap-south-2">ap-south-2</div>
+                    <div class="region-option" data-region="ap-southeast-1">ap-southeast-1</div>
+                    <div class="region-option" data-region="ap-southeast-2">ap-southeast-2</div>
+                    <div class="region-option" data-region="ap-southeast-3">ap-southeast-3</div>
+                    <div class="region-option" data-region="ap-southeast-4">ap-southeast-4</div>
+                    <div class="region-option" data-region="ap-southeast-5">ap-southeast-5</div>
+                    <div class="region-option" data-region="ap-southeast-7">ap-southeast-7</div>
+                    <div class="region-option" data-region="ca-central-1">ca-central-1</div>
+                    <div class="region-option" data-region="ca-west-1">ca-west-1</div>
+                    <div class="region-option" data-region="mx-central-1">mx-central-1</div>
                 </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-all" value="all" checked>
-                    <label for="series-all">All Series</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-t3" value="t3.">
-                    <label for="series-t3">t3</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-t3a" value="t3a.">
-                    <label for="series-t3a">t3a</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-m5" value="m5.">
-                    <label for="series-m5">m5</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-m5a" value="m5a.">
-                    <label for="series-m5a">m5a</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-r5" value="r5.">
-                    <label for="series-r5">r5</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-r5a" value="r5a.">
-                    <label for="series-r5a">r5a</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-c5" value="c5.">
-                    <label for="series-c5">c5</label>
-                </div>
-                <div class="checkbox-option">
-                    <input type="checkbox" id="series-c5a" value="c5a.">
-                    <label for="series-c5a">c5a</label>
+            </div>
+            
+            <div class="dropdown-container">
+                <label for="series-dropdown">Instance Series:</label>
+                <button id="dropdown-btn" class="dropdown-btn">All Series</button>
+                <div id="series-dropdown" class="dropdown-content">
+                    <div class="select-all" onclick="toggleAllSeries()">
+                        <span id="selectAllText">Select All</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-all" value="all" checked>
+                        <label for="series-all">All Series</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-t3" value="t3.">
+                        <label for="series-t3">t3</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-t3a" value="t3a.">
+                        <label for="series-t3a">t3a</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-m5" value="m5.">
+                        <label for="series-m5">m5</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-m5a" value="m5a.">
+                        <label for="series-m5a">m5a</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-r5" value="r5.">
+                        <label for="series-r5">r5</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-r5a" value="r5a.">
+                        <label for="series-r5a">r5a</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-c5" value="c5.">
+                        <label for="series-c5">c5</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="series-c5a" value="c5a.">
+                        <label for="series-c5a">c5a</label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,6 +264,7 @@
 </body>
 <script>
 
+let selectedRegion = 'us-east-1';
 let cpuRamData = [];
 let filteredInstances = [];
 let currentIndex = 0;
@@ -205,23 +272,37 @@ let currentIndex = 0;
 fetch('instance_data.json')
   .then(response => response.json())
   .then(data => {
-    cpuRamData = data;  // now your JSON data is assigned just like before
+    cpuRamData = data;  
 
-    console.log("Loaded JSON:", cpuRamData);
-
-    // You can now use cpuRamData here or call your functions
-    setupDropdown(); // Example function
   })
   .catch(error => {
     console.error('Error loading instance_data.json:', error);
   });
 
 
+document.getElementById("region-dropdown-btn").addEventListener("click", function() {
+    document.getElementById("region-dropdown").classList.toggle("show");
+});
+
+
+document.querySelectorAll('.region-option').forEach(option => {
+    option.addEventListener('click', function() {
+
+        document.querySelectorAll('.region-option').forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedRegion = this.getAttribute('data-region');
+        document.getElementById('region-dropdown-btn').textContent = this.textContent;
+        document.getElementById('region-dropdown').classList.remove('show');
+        
+    });
+});
+
+
 document.getElementById("dropdown-btn").addEventListener("click", function() {
     document.getElementById("series-dropdown").classList.toggle("show");
 });
 
-// Close dropdown when clicking outside
+
 window.addEventListener("click", function(event) {
     if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-content')) {
         const dropdowns = document.getElementsByClassName("dropdown-content");
@@ -233,7 +314,7 @@ window.addEventListener("click", function(event) {
     }
 });
 
-// Add event listener to "All Series" checkbox
+
 document.getElementById("series-all").addEventListener("change", function() {
     const isChecked = this.checked;
     const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
@@ -249,7 +330,7 @@ document.getElementById("series-all").addEventListener("change", function() {
     updateSelectAllText();
 });
 
-// Add event listeners to other checkboxes
+
 const seriesCheckboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all)');
 seriesCheckboxes.forEach(checkbox => {
     checkbox.addEventListener("change", function() {
@@ -258,7 +339,6 @@ seriesCheckboxes.forEach(checkbox => {
             allCheckbox.checked = false;
         }
         
-        // If no other checkbox is checked, re-check "All Series"
         const anyChecked = Array.from(seriesCheckboxes).some(cb => cb.checked);
         if (!anyChecked) {
             allCheckbox.checked = true;
@@ -276,7 +356,6 @@ function toggleAllSeries() {
     const checkboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]:not(#series-all)');
     const allCheckbox = document.getElementById("series-all");
     
-    // If "All Series" is checked, we want to uncheck it and check all others
     if (allCheckbox.checked) {
         allCheckbox.checked = false;
         checkboxes.forEach(checkbox => {
@@ -284,7 +363,6 @@ function toggleAllSeries() {
             checkbox.disabled = false;
         });
     } 
-    // If at least one individual series is checked, select "All Series" only
     else {
         allCheckbox.checked = true;
         checkboxes.forEach(checkbox => {
@@ -349,25 +427,23 @@ function findInstance() {
         return;
     }
 
-    filteredInstances = cpuRamData.filter(instance => {
-        // Check vCPU and memory requirements
-        // Now we're looking for instances with specs GREATER THAN OR EQUAL to user input
+
+
+    filteredInstances = cpuRamData[selectedRegion].filter(instance => {
         const meetsRequirements = 
             instance["vCPUs"] >= vcpuInput &&
-            instance["Instance Memory"] >= memoryInput;
+            instance["Memory"] >= memoryInput;
             
-        // Check series preference
         let meetsSeriesPreference = false;
         
         if (selectedSeries.includes("all")) {
             meetsSeriesPreference = true;
         } else {
-            // Check if the instance API name starts with any of the selected series
             meetsSeriesPreference = selectedSeries.some(series => 
-                instance["API Name"].startsWith(series)
+                instance["Instance name"].startsWith(series)
             );
         }
-        
+
         return meetsRequirements && meetsSeriesPreference;
     });
 
@@ -375,14 +451,11 @@ function findInstance() {
         document.getElementById("results").innerHTML = "<p>No matching instance found.</p>";
         return;
     }
-
-    // Sort by cost (lowest first)
-    filteredInstances.sort((a, b) => a["Linux Reserved cost"] - b["Linux Reserved cost"]);
+    filteredInstances.sort((a, b) => a["On-Demand Hourly Cost"] - b["On-Demand Hourly Cost"]);
     
     currentIndex = 0;
     displayInstance(currentIndex);
-    
-    // Close dropdown if open
+
     document.getElementById("series-dropdown").classList.remove("show");
 }
 
@@ -393,12 +466,12 @@ function displayInstance(index) {
     const div = document.createElement("div");
     div.className = "instance";
     div.innerHTML = `
-        <button onclick="navigator.clipboard.writeText('${instance["API Name"]}'); this.style.transform='scale(0.9)'; setTimeout(() => this.style.transform='scale(1)', 150);" 
+        <button onclick="navigator.clipboard.writeText('${instance["Instance name"]}'); this.style.transform='scale(0.9)'; setTimeout(() => this.style.transform='scale(1)', 150);" 
             style="border: none; background: grey; cursor: pointer; font-size: 14px; transition: transform 0.15s; padding:7px;padding-top:0px;padding-bottom:3px;">
             Copy
         </button>&nbsp;&nbsp;
-        <strong>${instance["API Name"]}</strong> 
-        (vCPUs: ${instance["vCPUs"]}, Memory: ${instance["Instance Memory"]} GiB)
+        <strong>${instance["Instance name"]}</strong> 
+        (vCPUs: ${instance["vCPUs"]}, Memory: ${instance["Memory"]} GiB)
     `;
     resultsDiv.appendChild(div);
 
@@ -422,7 +495,6 @@ function displayInstance(index) {
     }
 }
 
-// Initialize the UI state
 updateDropdownButtonText();
 updateSelectAllText();
 const allCheckbox = document.getElementById("series-all");
